@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  book-service:
+    container_name: book-service
+    image: book-service
+    ports:
+      - "8080:8080"
+      - "9090:9090"
+    environment:
+      BPL_DEBUG_ENABLED: "true"
+      BPL_DEBUG_PORT: 9090
+  music-service:
+    container_name: music-service
+    image: music-service
+    ports:
+      - "8181:8181"
+      - "9191:9191"
+    environment:
+      BPL_DEBUG_ENABLED: "true"
+      BPL_DEBUG_PORT: 9191

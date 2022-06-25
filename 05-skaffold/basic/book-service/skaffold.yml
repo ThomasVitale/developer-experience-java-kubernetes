@@ -1,0 +1,34 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: book-service
+build:
+  artifacts:
+  - image: book-service
+    buildpacks:
+      # This builder is only for ARM64 systems.
+      # On AMD64, use "paketobuildpacks/builder:tiny".
+      # For more info: https://github.com/dashaun/paketo-arm64
+      builder: ghcr.io/thomasvitale/java-builder-arm64
+      trustBuilder: true
+      env:
+        - BP_JVM_VERSION=17.*
+        - BP_LIVE_RELOAD_ENABLED=true
+      dependencies:
+        paths:
+          - build.gradle
+          - src/main/resources
+          - bin/main
+    sync:
+      manual:
+        - src: "src/main/resources/**/*"
+          dest: /workspace/BOOT-INF/classes
+          strip: src/main/resources/
+        - src: "bin/main/**/*"
+          dest: /workspace/BOOT-INF/classes
+          strip: bin/main/
+deploy:
+  kubectl:
+    manifests:
+    - config/deployment.yml
+    - config/service.yml

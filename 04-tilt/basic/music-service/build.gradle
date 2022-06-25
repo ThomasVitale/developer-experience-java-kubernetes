@@ -1,0 +1,34 @@
+plugins {
+	id 'org.springframework.boot' version '3.0.0-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.thomasvitale'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+bootBuildImage {
+	// This builder is only for ARM64 systems. On AMD64, delete the line.
+	// For more info: https://github.com/dashaun/paketo-arm64
+	builder = "ghcr.io/thomasvitale/java-builder-arm64"
+	imageName = "music-service"
+	environment = ["BP_LIVE_RELOAD_ENABLED": "true"]
+}

@@ -1,0 +1,19 @@
+# Build
+custom_build(
+    # Name of the container image
+    ref = 'music-service',
+    # Command to build the container image
+    command = './gradlew bootBuildImage --imageName $EXPECTED_REF',
+    # Files to watch that trigger a new build
+    deps = ['build.gradle', './bin/main'],
+    # Enables live reload
+    live_update = [
+        sync('./bin/main', '/workspace/BOOT-INF/classes')
+    ]
+)
+
+# Deploy
+k8s_yaml(['config/deployment.yml', 'config/service.yml'])
+
+# Manage
+k8s_resource('music-service', port_forwards=['8181:8181', '9191:9191'])

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-service
+  labels:
+    app: book-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book-service
+  template:
+    metadata:
+      labels:
+        app: book-service
+    spec:
+      containers:
+        - name: book-service
+          image: book-service
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              exec:
+                command: [ "sh", "-c", "sleep 5" ]
+          ports:
+            - containerPort: 8080
+          env:
+            - name: BPL_DEBUG_ENABLED
+              value: "true"
+            - name: BPL_DEBUG_PORT
+              value: "9090"
+          resources:
+            requests:
+              cpu: "0.2"
+              memory: "756Mi"
+            limits:
+              cpu: "2"
+              memory: "756Mi"

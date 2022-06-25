@@ -1,0 +1,29 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: book-service
+spec:
+  template:
+    spec:
+      containers:
+        - name: book-service
+          image: ghcr.io/thomasvitale/devex/book-service
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+            initialDelaySeconds: 5
+            periodSeconds: 15
+          resources:
+            requests:
+              cpu: "0.1"
+              memory: "756Mi"
+            limits:
+              cpu: "1"
+              memory: "756Mi"
