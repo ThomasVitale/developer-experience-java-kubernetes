@@ -25,6 +25,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+tasks.named('jar') {
+	enabled = false
+}
+
 bootBuildImage {
 	// This builder is only for ARM64 systems. On AMD64, delete the line.
 	// For more info: https://github.com/dashaun/paketo-arm64
