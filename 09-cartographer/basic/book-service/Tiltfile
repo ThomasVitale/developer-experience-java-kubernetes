@@ -1,0 +1,25 @@
+SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='ghcr.io/thomasvitale/jbcn/book-service-source')
+LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
+NAMESPACE = os.getenv("NAMESPACE", default='default')
+
+k8s_custom_deploy(
+    'book-service',
+    apply_cmd="tanzu apps workload apply -f config/workload.yml --live-update" +
+               " --local-path " + LOCAL_PATH +
+               " --source-image " + SOURCE_IMAGE +
+               " --namespace " + NAMESPACE +
+               " --type web-iterate" +
+               " --yes >/dev/null" +
+               " && kubectl get workload book-service --namespace " + NAMESPACE + " -o yaml",
+    delete_cmd="tanzu apps workload delete -f config/workload.yml --namespace " + NAMESPACE + " --yes",
+    deps = ['build.gradle', './bin/main'],
+    container_selector='workload',
+    live_update = [
+        sync('./bin/main', '/workspace/BOOT-INF/classes')
+    ]
+)
+
+k8s_resource('book-service', port_forwards=["8080:8080"],
+            extra_pod_selectors=[{'serving.knative.dev/service': 'book-service'}])
+
+allow_k8s_contexts('do-ams3-jbcn-cluster')
