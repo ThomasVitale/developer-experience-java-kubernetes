@@ -12,7 +12,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main
 
 echo "\n🔌 Waiting for NGINX Ingress to be ready..."
 
-sleep 10
+sleep 15
 
 kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
