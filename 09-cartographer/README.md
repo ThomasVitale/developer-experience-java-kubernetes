@@ -24,7 +24,7 @@ k create ns package-repo-global
 
 ```shell
 kctrl package repository add -r neptunus-package-repository \
-    --url ghcr.io/neptunus-platform/package-repository:0.8.0 \
+    --url ghcr.io/neptunus-platform/package-repository:0.10.0 \
     --namespace package-repo-global
 ```
 
@@ -78,7 +78,7 @@ Then, install the platform packages.
 ```shell
 kctrl package install --package-install application-platform \
     --package application-platform.neptunus.thomasvitale.com \
-    --version 0.2.0 \
+    --version 0.4.0 \
     --namespace package-repo-global \
     --values-file values.yml
 ```

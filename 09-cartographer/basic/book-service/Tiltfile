@@ -8,7 +8,6 @@ k8s_custom_deploy(
                " --local-path " + LOCAL_PATH +
                " --source-image " + SOURCE_IMAGE +
                " --namespace " + NAMESPACE +
-               " --type web" +
                " --yes >/dev/null" +
                " && kubectl get workload book-service --namespace " + NAMESPACE + " -o yaml",
     delete_cmd="tanzu apps workload delete -f config/workload.yml --namespace " + NAMESPACE + " --yes",
@@ -23,3 +22,5 @@ k8s_resource('book-service', port_forwards=["8080:8080"],
             extra_pod_selectors=[{'serving.knative.dev/service': 'book-service'}])
 
 allow_k8s_contexts('do-ams3-devex-cluster')
+
+update_settings(k8s_upsert_timeout_secs=60)
