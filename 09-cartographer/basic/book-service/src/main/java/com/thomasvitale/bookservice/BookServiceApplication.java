@@ -19,7 +19,7 @@ public class BookServiceApplication {
 	@Bean
 	RouterFunction<ServerResponse> routerFunction() {
 		return RouterFunctions.route()
-			.GET("/", request -> ServerResponse.ok().bodyValue("Welcome to the BookService!"))
+			.GET("/", request -> ServerResponse.ok().bodyValue("Welcome to Isengard!"))
 			.GET("/books", request -> ServerResponse.ok().bodyValue(List.of(
 				new Book("The Hobbit"),
 				new Book("The Lord of the Rings"),

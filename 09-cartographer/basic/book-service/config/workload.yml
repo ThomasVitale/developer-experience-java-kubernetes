@@ -4,15 +4,10 @@ kind: Workload
 metadata:
   name: book-service
   labels:
-    apps.tanzu.vmware.com/workload-type: web
-    apps.tanzu.vmware.com/has-tests: "true"
+    apps.kadras.io/workload-type: web
     app.kubernetes.io/part-of: book-service
 spec:
   serviceAccountName: default
-  params:
-    - name: annotations
-      value:
-        autoscaling.knative.dev/min-scale: "1"
   source:
     git:
       url: https://github.com/ThomasVitale/developer-experience-java-kubernetes

@@ -1,4 +1,4 @@
-SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='ghcr.io/thomasvitale/jbcn/book-service-source')
+SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='ghcr.io/thomasvitale/devex/book-service-source')
 LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
 NAMESPACE = os.getenv("NAMESPACE", default='default')
 
@@ -21,6 +21,4 @@ k8s_custom_deploy(
 k8s_resource('book-service', port_forwards=["8080:8080"],
             extra_pod_selectors=[{'serving.knative.dev/service': 'book-service'}])
 
-allow_k8s_contexts('do-ams3-devex-cluster')
-
-update_settings(k8s_upsert_timeout_secs=60)
+allow_k8s_contexts('do-fra1-dx-cluster')
