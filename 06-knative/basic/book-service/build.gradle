@@ -31,9 +31,9 @@ tasks.named('jar') {
 }
 
 bootBuildImage {
-	// Uncomment the builder on ARM64 systems.
-	// For more info: https://github.com/dashaun/paketo-arm64
-	// builder = "ghcr.io/thomasvitale/java-builder-arm64"
+	// This builder is only for ARM64 systems. On AMD64, delete the line.
+	// For more info: https://github.com/thomasvitale/paketo-arm64
+	builder = "ghcr.io/thomasvitale/java-builder-arm64"
 	imageName = "ghcr.io/thomasvitale/devex/book-service"
 	environment = ["BP_LIVE_RELOAD_ENABLED": "true"]
 }
