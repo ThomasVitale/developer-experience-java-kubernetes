@@ -12,7 +12,7 @@ spec:
           tokenRef:
             secretName: github-token
             key: token
-        requeueAfterSeconds: 30
+        requeueAfterSeconds: 5
   template:
     metadata:
       name: 'music-service-{{branch}}-{{number}}'

@@ -1,6 +1,6 @@
 SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='ghcr.io/thomasvitale/devex/book-service-source')
 LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
-NAMESPACE = os.getenv("NAMESPACE", default='default')
+NAMESPACE = os.getenv("NAMESPACE", default='tom-dev')
 
 k8s_custom_deploy(
     'book-service',
@@ -21,4 +21,4 @@ k8s_custom_deploy(
 k8s_resource('book-service', port_forwards=["8080:8080"],
             extra_pod_selectors=[{'serving.knative.dev/service': 'book-service'}])
 
-allow_k8s_contexts('do-fra1-dx-cluster')
+allow_k8s_contexts('do-fra1-kadras-iterate-cluster')
