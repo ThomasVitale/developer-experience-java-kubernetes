@@ -25,4 +25,4 @@ Running through the examples will require you to have the following installed on
 
 To manage different versions and distributions of Java, I recommend using [SDKMAN!](https://sdkman.io).
 
-Finally, to interact with HTTP services, I recommend using [`httpie`](https://httpie.io).
+Finally, to interact with HTTP services, I recommend using [httpie](https://httpie.io).
