@@ -25,7 +25,7 @@ You can run the application on the local JVM as follows.
 
 ## Live Reload
 
-The Spring Boot DevTools library provides live-reload capabilities when working on the application locally.
+The [Spring Boot Developer Tools](https://docs.spring.io/spring-boot/docs/3.0.0-M5/reference/html/using.html#using.devtools) library provides live-reload capabilities when working on the application locally.
 
 Navigate to the `live-reload` folder.
 
@@ -40,4 +40,4 @@ Run the application on the local JVM as follows.
 ```
 
 Now, try making some changes to the application (for example, updating the REST API) and save.
-Spring Boot DevTools will automatically reload the application with the new classes.
+Spring Boot Developer Tools will automatically reload the application with the new classes.

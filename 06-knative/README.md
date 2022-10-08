@@ -1,6 +1,6 @@
 # 06 - Knative
 
-Let's use a local cluster provisioned with [`kind`](https://kind.sigs.k8s.io) and the [Knative quickstart](https://knative.dev/docs/getting-started/quickstart-install/).
+Let's use a local cluster provisioned with [`kind`](https://kind.sigs.k8s.io) and the [Knative quickstart](https://knative.dev/docs/getting-started/quickstart-install/) to set up Knative.
 
 ```shell
 kn quickstart kind
@@ -15,7 +15,7 @@ cd basic/book-service
 ```
 
 Then, you can containerize and publish the application image to a container registry. I have already
-done that and the image is available on my GitHub Container Registry: ghcr.io/thomasvitale/devex/book-service. You can use it to deploy the application on Knative from a YAML manifest.
+done that and the image is available on my GitHub Container Registry: `ghcr.io/thomasvitale/devex/book-service-arm64`. You can use it to deploy the application on Knative from a YAML manifest. Update `config/knative.yml` with your own image, then run the following command.
 
 ```shell
 kubectl apply -f config
@@ -38,7 +38,7 @@ book-service   http://book-service.default.127.0.0.1.sslip.io   book-service-000
 Finally, call the application as follows.
 
 ```shell
-http http://book-service.default.127.0.0.1.sslip.io
+http book-service.default.127.0.0.1.sslip.io
 ```
 
 ## Clean-up

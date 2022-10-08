@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '3.0.0-SNAPSHOT'
+	id 'org.springframework.boot' version '3.0.0-M5'
 	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 	id 'java'
 }
@@ -11,7 +11,6 @@ sourceCompatibility = '17'
 repositories {
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
 }
 
 dependencies {
@@ -30,10 +29,14 @@ tasks.named('jar') {
 	enabled = false
 }
 
-bootBuildImage {
-	// This builder is only for ARM64 systems. On AMD64, delete the line.
-	// For more info: https://github.com/thomasvitale/paketo-arm64
-	builder = "ghcr.io/thomasvitale/java-builder-arm64"
+tasks.named('bootBuildImage') {
+	
+	if (System.getProperty( "os.arch" ).toLowerCase().startsWith('aarch')) {
+		// This builder is only for ARM64 systems.
+		// For more info: https://github.com/thomasvitale/paketo-arm64
+		builder = "ghcr.io/thomasvitale/java-builder-arm64"
+	}
+
 	imageName = "book-service"
 	environment = ["BP_LIVE_RELOAD_ENABLED": "true"]
 }

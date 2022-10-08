@@ -12,7 +12,7 @@ cd ..
 Navigate to the `basic` folder.
 
 ```shell
-cd basic/book-service
+cd 03-kubernetes/basic/book-service
 ```
 
 Package the application as a container image.
@@ -39,17 +39,11 @@ You can now test the application with [`httpie`](https://httpie.io).
 http localhost/books
 ```
 
-## Live Reload
-
-Paketo, the Cloud Native Buildpacks implementation we used above, provides support for live-reload.
-You can enable it via the `BP_LIVE_RELOAD_ENABLED` environment variable. Then, you need a tool like
-Spring Boot DevTools to take care of loading into the images the changed classes every time they are updated.
-
 ## Clean-up
 
 When you're done, delete the cluster as follows.
 
 ```shell
-cd ..
+cd ../../..
 ./destroy-cluster.sh
 ```

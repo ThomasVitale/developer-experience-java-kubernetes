@@ -13,3 +13,16 @@ The approach works with any Java application, but we'll use Spring Boot for our 
 * Cartographer.
 
 For each tool/strategy there is a dedicated folder within which you'll find instructions on how to setup your environment.
+
+## Pre-requisites
+
+Running through the examples will require you to have the following installed on your machine:
+
+* [Java 17](https://adoptium.net/en-GB/temurin/releases)
+* [Docker](https://docs.docker.com/engine/install)
+* [kubectl](https://kubectl.docs.kubernetes.io)
+* [kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
+
+To manage different versions and distributions of Java, I recommend using [SDKMAN!](https://sdkman.io).
+
+Finally, to interact with HTTP services, I recommend using [`httpie`](https://httpie.io).

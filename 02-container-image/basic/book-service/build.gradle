@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '3.0.0-SNAPSHOT'
+	id 'org.springframework.boot' version '3.0.0-M5'
 	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 	id 'java'
 }
@@ -11,7 +11,6 @@ sourceCompatibility = '17'
 repositories {
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
 }
 
 dependencies {
@@ -24,8 +23,4 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
-}
-
-tasks.named('jar') {
-	enabled = false
 }

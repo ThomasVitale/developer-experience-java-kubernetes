@@ -8,7 +8,7 @@ build:
     buildpacks:
       # This builder is only for ARM64 systems.
       # On AMD64, use "paketobuildpacks/builder:tiny".
-      # For more info: https://github.com/dashaun/paketo-arm64
+      # For more info: https://github.com/thomasvitale/paketo-arm64
       builder: ghcr.io/thomasvitale/java-builder-arm64
       trustBuilder: true
       env:

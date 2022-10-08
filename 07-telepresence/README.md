@@ -1,6 +1,6 @@
 # 07 - Telepresence
 
-Let's explore how to develop applications on the local JVM while taking advantage of all the services provided by a Kubernetes cluster. We'll use a local cluster provisioned with [`kind`](https://kind.sigs.k8s.io).
+Let's explore how to develop applications on the local JVM while taking advantage of all the services provided by a Kubernetes cluster. We'll use a local cluster provisioned with [`kind`](https://kind.sigs.k8s.io). For this example, you need to install [Telepresence](https://www.telepresence.io/docs/latest/install).
 
 ```shell
 cd ..
@@ -12,7 +12,7 @@ cd ..
 Navigate to the `basic` folder.
 
 ```shell
-cd basic/book-service
+cd 07-telepresence/basic/book-service
 ```
 
 Package the application as a container image.
@@ -70,11 +70,11 @@ telepresence quit
 Then, delete the cluster as follows.
 
 ```shell
-cd ..
+cd ../../..
 ./destroy-cluster.sh
 ```
 
-## Issue with AMD64
+## Issues with AMD64
 
 There are some issues with the latest Telepresence version on AMD64 machines, so I'm using an older version there.
 

@@ -2,6 +2,6 @@ version: "3.8"
 services:
   book-service:
     container_name: book-service
-    image: book-service:v3
+    image: book-service
     ports:
       - "8080:8080"

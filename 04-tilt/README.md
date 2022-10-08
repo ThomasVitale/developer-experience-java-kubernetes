@@ -1,6 +1,6 @@
 # 04 - Tilt
 
-The inner loop on Kubernetes requires several steps: building the image, loading it to the cluster, and deploying it. We'll automate it with Tilt.
+The inner development loop on Kubernetes requires several steps: compiling the application, building the image, loading it to the cluster, and deploying it. We'll automate it with Tilt.
 
 Let's use a local cluster provisioned with [`kind`](https://kind.sigs.k8s.io).
 
@@ -14,7 +14,7 @@ cd ..
 Navigate to the `basic` folder.
 
 ```shell
-cd basic/book-service
+cd 04-tilt/basic/book-service
 ```
 
 Run Tilt to start the automated inner development loop on Kubernetes.
@@ -32,6 +32,6 @@ to the Pod.
 When you're done, delete the cluster as follows.
 
 ```shell
-cd ..
+cd ../../..
 ./destroy-cluster.sh
 ```

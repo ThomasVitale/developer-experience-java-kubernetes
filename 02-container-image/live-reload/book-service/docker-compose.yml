@@ -9,4 +9,3 @@ services:
     environment:
       BPL_DEBUG_ENABLED: "true"
       BPL_DEBUG_PORT: 9090
-      BP_LIVE_RELOAD_ENABLED: "true"

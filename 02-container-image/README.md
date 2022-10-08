@@ -10,6 +10,12 @@ Navigate to the `basic` folder.
 cd basic/book-service
 ```
 
+Then, package the application as a JAR.
+
+```shell
+./gradlew bootJar
+```
+
 Explore the three different Dockerfiles with different levels of optimizations in terms of performance and security. You can build a container image as follows.
 
 ```shell
@@ -42,7 +48,7 @@ On ARM64 machines, use the following.
 pack build book-service --builder ghcr.io/thomasvitale/java-builder-arm64 --env BP_JVM_VERSION=17
 ```
 
-For Spring Boot projects, Buildpacks integration is provided directly by the Spring Boot plugins for Maven and Gradle, so you don't need to install any additional tool.
+For Spring Boot projects, Buildpacks integration is provided directly by the Spring Boot plugins for [Maven](https://docs.spring.io/spring-boot/docs/3.0.0-M5/maven-plugin/reference/htmlsingle/#build-image) and [Gradle](https://docs.spring.io/spring-boot/docs/3.0.0-M5/gradle-plugin/reference/htmlsingle/#build-image), so you don't need to install any additional tool.
 
 ```shell
 ./gradlew bootBuildImage
@@ -51,11 +57,14 @@ For Spring Boot projects, Buildpacks integration is provided directly by the Spr
 Either way, you can run the application as follows.
 
 ```shell
-docker run --rm -p 8080:8080 book-service
+docker-compose up -d
 ```
+
+You can also debug the application from your IDE. Check out the configuration in the `docker-compose.yml` file, where the debug mode is enabled via convenient Buildpacks environment variables. Then, configure your IDE with a remote debugger on port `9090` and try out debugging the application while running as a container.
 
 ## Live Reload
 
 Paketo, the Cloud Native Buildpacks implementation we used above, provides support for live-reload.
-You can enable it via the `BP_LIVE_RELOAD_ENABLED` environment variable. Then, you need a tool like
-Spring Boot DevTools to take care of loading into the images the changed classes every time they are updated.
+You can enable it via the `BP_LIVE_RELOAD_ENABLED` environment variable, as demonstrated in `live-reload/book-service/build.gradle`.
+
+Then, you would need a tool like Spring Boot Developer Tools to take care of loading into the images the changed classes every time they are updated. We'll use the live reload capabilities provided by Buildpacks when working with Tilt.
