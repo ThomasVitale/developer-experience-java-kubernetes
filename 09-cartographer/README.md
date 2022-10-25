@@ -33,7 +33,7 @@ kubectl create ns kadras-packages
 
 ```shell
 kctrl package repository add -r kadras-packages \
-    --url ghcr.io/arktonix/kadras-packages:0.2.2 \
+    --url ghcr.io/arktonix/kadras-packages:0.3.0 \
     --namespace kadras-packages
 ```
 
@@ -56,9 +56,6 @@ cartographer:
     registry:
       server: <registry-server>
       repository: <username>/<repo>
-
-cert_manager:
-  namespace: cert-manager
 
 contour:
   envoy:
@@ -101,7 +98,7 @@ Then, install the [Kadras Application Platform](https://github.com/arktonix/kadr
 ```shell
 kctrl package install --package-install application-platform \
     --package application-platform.packages.kadras.io \
-    --version 0.1.2 \
+    --version 0.2.0 \
     --namespace kadras-packages \
     --values-file values.yml
 ```
