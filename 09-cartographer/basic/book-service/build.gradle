@@ -25,6 +25,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+tasks.named('jar') {
+	enabled = false
+}
+
 tasks.named('bootBuildImage') {
 	
 	if (System.getProperty( "os.arch" ).toLowerCase().startsWith('aarch')) {
