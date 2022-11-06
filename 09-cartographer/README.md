@@ -52,7 +52,10 @@ packages:
   namespace: "kadras-packages"
 
 cartographer:
+  delivery:
+    delivery_chain: "basic"
   golden_path_web:
+    supply_chain: "basic"
     registry:
       server: <registry-server>
       repository: <username>/<repo>

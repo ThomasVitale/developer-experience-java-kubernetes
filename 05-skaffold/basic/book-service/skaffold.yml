@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta29
+apiVersion: skaffold/v3
 kind: Config
 metadata:
   name: book-service
@@ -27,8 +27,8 @@ build:
         - src: "bin/main/**/*"
           dest: /workspace/BOOT-INF/classes
           strip: bin/main/
-deploy:
-  kubectl:
-    manifests:
-    - config/deployment.yml
-    - config/service.yml
+manifests:
+  rawYaml:
+  - config/deployment.yml
+  - config/ingress.yml
+  - config/service.yml

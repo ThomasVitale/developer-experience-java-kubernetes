@@ -25,7 +25,7 @@ You can run the application on the local JVM as follows.
 
 ## Live Reload
 
-The [Spring Boot Developer Tools](https://docs.spring.io/spring-boot/docs/3.0.0-M5/reference/html/using.html#using.devtools) library provides live-reload capabilities when working on the application locally.
+The [Spring Boot Developer Tools](https://docs.spring.io/spring-boot/docs/3.0.0-RC1/reference/html/using.html#using.devtools) library provides live-reload capabilities when working on the application locally.
 
 Navigate to the `live-reload` folder.
 
