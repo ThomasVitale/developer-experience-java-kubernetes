@@ -7,7 +7,6 @@ metadata:
     apps.kadras.io/workload-type: web
     app.kubernetes.io/part-of: book-service
 spec:
-  serviceAccountName: default
   source:
     git:
       url: https://github.com/ThomasVitale/developer-experience-java-kubernetes
@@ -18,14 +17,3 @@ spec:
     env: 
       - name: BP_JVM_VERSION 
         value: "17.*"
-  params:
-    - name: annotations
-      value:
-        autoscaling.knative.dev/min-scale: "1"
-  resources:
-    limits:
-      cpu: "2"
-      memory: 1Gi
-    requests:
-      cpu: "0.2"
-      memory: 1Gi
