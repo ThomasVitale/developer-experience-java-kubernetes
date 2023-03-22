@@ -29,11 +29,10 @@ tasks.named('jar') {
 }
 
 tasks.named('bootBuildImage') {
-	
 	if (System.getProperty( "os.arch" ).toLowerCase().startsWith('aarch')) {
 		// This builder is only for ARM64 systems.
 		// For more info: https://github.com/thomasvitale/paketo-arm64
-		builder = "ghcr.io/thomasvitale/java-builder-arm64"
+		builder = "ghcr.io/thomasvitale/builder-arm:tiny"
 	}
 
 	imageName = "book-service"
