@@ -23,7 +23,8 @@ public class BookServiceApplication {
 			.GET("/books", request -> ServerResponse.ok().bodyValue(List.of(
 				new Book("The Hobbit"),
 				new Book("The Lord of the Rings"),
-				new Book("His Dark Materials")
+				new Book("His Dark Materials"),
+				new Book("The Silmarillion")
 			)))
 			.build();
 	}
