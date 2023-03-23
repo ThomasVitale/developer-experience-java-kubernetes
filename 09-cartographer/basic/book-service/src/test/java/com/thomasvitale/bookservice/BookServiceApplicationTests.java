@@ -29,7 +29,7 @@ class BookServiceApplicationTests {
 			.uri("/books")
 			.exchange()
 			.expectStatus().isOk()
-			.expectBodyList(Book.class).hasSize(3);
+			.expectBodyList(Book.class).hasSize(4);
 	}
 
 }
