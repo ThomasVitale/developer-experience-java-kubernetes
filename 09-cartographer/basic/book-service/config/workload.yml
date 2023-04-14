@@ -5,6 +5,8 @@ metadata:
   name: book-service
   labels:
     apps.kadras.io/workload-type: web
+    apps.kadras.io/has-tests: "true"
+    apps.kadras.io/language: java
     app.kubernetes.io/part-of: book-service
 spec:
   source:
