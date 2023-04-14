@@ -5,6 +5,7 @@ NAMESPACE = os.getenv("NAMESPACE", default='default')
 k8s_custom_deploy(
     'book-service',
     apply_cmd="carto apps workload apply -f config/workload.yml --update-strategy replace --debug --live-update" +
+               " --label " + "apps.kadras.io/has-tests-" +
                " --local-path " + LOCAL_PATH +
                " --source-image " + SOURCE_IMAGE +
                " --namespace " + NAMESPACE +

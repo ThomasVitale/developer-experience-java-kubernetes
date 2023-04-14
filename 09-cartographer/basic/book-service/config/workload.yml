@@ -15,7 +15,3 @@ spec:
       ref:
         branch: main
     subPath: 09-cartographer/basic/book-service
-  build:
-    env:
-      - name: BP_JVM_VERSION
-        value: "17"
