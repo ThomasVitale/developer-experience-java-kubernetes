@@ -7,9 +7,9 @@ build:
   - image: book-service
     buildpacks:
       # This builder is only for ARM64 systems.
-      # On AMD64, use "paketobuildpacks/builder:tiny".
-      # For more info: https://github.com/thomasvitale/paketo-arm64
-      builder: ghcr.io/thomasvitale/java-builder-arm64
+      # On AMD64, use "paketobuildpacks/builder-jammy-tiny".
+      # For more info: https://github.com/dashaun/paketo-arm64
+      builder: dashaun/builder-arm:tiny
       trustBuilder: true
       env:
         - BP_JVM_VERSION=17.*
