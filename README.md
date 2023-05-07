@@ -18,7 +18,7 @@ For each tool/strategy there is a dedicated folder within which you'll find inst
 
 Running through the examples will require you to have the following installed on your machine:
 
-* [Java 17](https://adoptium.net/en-GB/temurin/releases)
+* [Java 20](https://adoptium.net/en-GB/temurin/releases)
 * [Podman](https://podman-desktop.io)
 * [kubectl](https://kubectl.docs.kubernetes.io)
 * [kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
