@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.thomasvitale'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '20'
+sourceCompatibility = '17'
 
 repositories {
 	mavenCentral()
