@@ -4,7 +4,7 @@ set -euo pipefail
 
 echo "\n📦 Initializing Kubernetes cluster..."
 
-KIND_EXPERIMENTAL_PROVIDER=podman kind create cluster --config kind-config.yml
+kind create cluster --config kind-config.yml
 
 echo "\n🔌 Installing NGINX Ingress..."
 
