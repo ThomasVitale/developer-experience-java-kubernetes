@@ -42,7 +42,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: temurin
+          distribution: liberica
           java-version: 21
           cache: gradle
       - name: Build container image
