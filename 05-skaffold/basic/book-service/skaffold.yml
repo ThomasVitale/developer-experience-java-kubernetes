@@ -1,32 +1,31 @@
-apiVersion: skaffold/v3
+apiVersion: skaffold/v4beta6
 kind: Config
 metadata:
   name: book-service
 build:
   artifacts:
-  - image: book-service
-    buildpacks:
-      # This builder is only for ARM64 systems.
-      # On AMD64, use "paketobuildpacks/builder-jammy-tiny".
-      # For more info: https://github.com/dashaun/paketo-arm64
-      builder: dashaun/builder-arm:tiny
-      trustBuilder: true
-      env:
-        - BP_JVM_VERSION=17.*
-        - BP_LIVE_RELOAD_ENABLED=true
-      dependencies:
-        paths:
-          - build.gradle
-          - src/main/resources
-          - bin/main
-    sync:
-      manual:
-        - src: "src/main/resources/**/*"
-          dest: /workspace/BOOT-INF/classes
-          strip: src/main/resources/
-        - src: "bin/main/**/*"
-          dest: /workspace/BOOT-INF/classes
-          strip: bin/main/
+    - image: book-service
+      buildpacks:
+        # For more info: https://github.com/dashaun/paketo-arm64
+        builder: docker.io/dashaun/builder:base
+        trustBuilder: true
+        env:
+          - BP_JVM_VERSION=21
+          - BP_LIVE_RELOAD_ENABLED=true
+        dependencies:
+          paths:
+            - build.gradle
+            - src/main/resources
+            - bin/main
+      sync:
+        manual:
+          - src: "src/main/resources/**/*"
+            dest: /workspace/BOOT-INF/classes
+            strip: src/main/resources/
+          - src: "bin/main/**/*"
+            dest: /workspace/BOOT-INF/classes
+            strip: bin/main/
+
 manifests:
   rawYaml:
   - config/deployment.yml

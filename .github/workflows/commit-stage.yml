@@ -15,12 +15,12 @@ jobs:
       security-events: write
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: temurin
-          java-version: 20
+          java-version: 21
           cache: gradle
       - name: Build, unit tests and integration tests
         run: |
@@ -38,12 +38,12 @@ jobs:
       security-events: write
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: temurin
-          java-version: 20
+          java-version: 21
           cache: gradle
       - name: Build container image
         run: |
@@ -52,7 +52,7 @@ jobs:
           ./gradlew bootBuildImage --builder paketobuildpacks/builder:tiny \
             --imageName ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
       - name: Log into container registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}

@@ -1,6 +1,7 @@
 # 08 - Argo CD
 
 Let's see how to use Argo CD to automatically provision temproary environments whenever a new pull request is created on a GitHub repository. We'll use a local cluster provisioned with [`kind`](https://kind.sigs.k8s.io).
+
 For this example, you need to install the [Argo CD CLI](https://argo-cd.readthedocs.io/en/stable/getting_started/#2-download-argo-cd-cli).
 
 ```shell
@@ -10,11 +11,11 @@ cd ..
 
 ## Argo CD
 
-You can install Argo CD with [`kubectl`](https://kubectl.docs.kubernetes.io).
+You can install Argo CD with [`kapp`](https://carvel.dev/kapp/docs/latest/install).
 
 ```shell
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kapp deploy -a argo -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml -y
 ```
 
 Next, use the port forwarding functionality in Kubernetes to expose the Argo CD Server to your local machine.
@@ -44,9 +45,7 @@ apply it to the cluster.
 kubectl apply -f applicationset.yml
 ```
 
-At this point, whenever you open a pull request to that repository, Argo CD will automatically
-deploy the application to the Kubernetes cluster (assuming the image has been built and published
-to a container registry). 
+At this point, whenever you open a pull request to that repository, Argo CD will automatically deploy the application to the Kubernetes cluster (assuming the image has been built and published to a container registry). 
 
 You can verify the result from the Argo CD GUI.
 

@@ -10,20 +10,3 @@ spec:
           image: ghcr.io/thomasvitale/devex/book-service-arm64
           ports:
             - containerPort: 8080
-          livenessProbe:
-            httpGet:
-              path: /actuator/health/liveness
-            initialDelaySeconds: 5
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /actuator/health/readiness
-            initialDelaySeconds: 5
-            periodSeconds: 15
-          resources:
-            requests:
-              cpu: "0.1"
-              memory: "512Mi"
-            limits:
-              cpu: "1"
-              memory: "512Mi"

@@ -18,6 +18,8 @@ spec:
         - name: book-service
           image: book-service
           imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 1001
           lifecycle:
             preStop:
               exec:
