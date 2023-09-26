@@ -39,16 +39,16 @@ cd buildpacks/book-service
 You can use the [`pack`](https://buildpacks.io/docs/tools/pack/) CLI from the Cloud Native Buildpacks project to package the application as a container image.
 
 ```shell
-pack build book-service --builder paketobuildpacks/builder:base --env BP_JVM_VERSION=17
+pack build book-service --builder docker.io/paketobuildpacks/builder-jammy-tiny --env BP_JVM_VERSION=21
 ```
 
 On ARM64 machines, use the following.
 
 ```shell
-pack build book-service --builder ghcr.io/thomasvitale/java-builder-arm64 --env BP_JVM_VERSION=17
+pack build book-service --builder docker.io/dashaun/builder:tiny --env BP_JVM_VERSION=21
 ```
 
-For Spring Boot projects, Buildpacks integration is provided directly by the Spring Boot plugins for [Maven](https://docs.spring.io/spring-boot/docs/3.0.0-RC1/maven-plugin/reference/htmlsingle/#build-image) and [Gradle](https://docs.spring.io/spring-boot/docs/3.0.0-RC1/gradle-plugin/reference/htmlsingle/#build-image), so you don't need to install any additional tool.
+For Spring Boot projects, Buildpacks integration is provided directly by the Spring Boot plugins for [Maven](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image) and [Gradle](https://docs.spring.io/spring-boot/docs/3.0.0-RC1/gradle-plugin/reference/htmlsingle/#build-image), so you don't need to install any additional tool.
 
 ```shell
 ./gradlew bootBuildImage

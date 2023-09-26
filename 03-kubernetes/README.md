@@ -27,10 +27,10 @@ Then load the image to the local cluster.
 kind load docker-image book-service --name devex-cluster
 ```
 
-Finally, deploy the application as follows with [`kubectl`](https://kubectl.docs.kubernetes.io).
+Finally, deploy the application as follows with [`kapp`](https://carvel.dev/kapp/docs/latest/install).
 
 ```shell
-kubectl apply -f config
+kapp deploy -a book-service -f config -y
 ```
 
 You can now test the application with [`httpie`](https://httpie.io).

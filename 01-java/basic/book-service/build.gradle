@@ -1,16 +1,20 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.1.0-RC2'
-	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.springframework.boot' version '3.1.4'
+	id 'io.spring.dependency-management' version '1.1.3'
 }
 
 group = 'com.thomasvitale'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '20'
+
+java {
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(21))
+	}
+}
 
 repositories {
   mavenCentral()
-  maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {
