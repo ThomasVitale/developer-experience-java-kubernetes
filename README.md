@@ -9,8 +9,7 @@ The approach works with any Java application, but we'll use Spring Boot for our 
 * Tilt
 * Skaffold
 * Telepresence
-* Argo CD
-* Cartographer.
+* Argo CD.
 
 For each tool/strategy there is a dedicated folder within which you'll find instructions on how to setup your environment.
 
@@ -19,7 +18,7 @@ For each tool/strategy there is a dedicated folder within which you'll find inst
 Running through the examples will require you to have the following installed on your machine:
 
 * [Java 21](https://adoptium.net/en-GB/temurin/releases)
-* [Docker](https://www.docker.com)
+* [Podman](https://podman-desktop.io) or [Docker](https://www.docker.com)
 * [kubectl](https://kubectl.docs.kubernetes.io)
 * [kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
 * [kapp](https://carvel.dev/kapp/docs/latest/install)

@@ -1,4 +1,4 @@
-apiVersion: skaffold/v4beta6
+apiVersion: skaffold/v4beta10
 kind: Config
 metadata:
   name: book-service
@@ -6,7 +6,7 @@ build:
   artifacts:
     - image: book-service
       buildpacks:
-        # For more info: https://github.com/dashaun/paketo-arm64
+        # Change to docker.io/paketobuildpacks/builder-jammy-base on ARM64
         builder: docker.io/dashaun/builder:base
         trustBuilder: true
         env:

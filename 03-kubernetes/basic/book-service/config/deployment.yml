@@ -31,5 +31,4 @@ spec:
               cpu: "0.2"
               memory: "1Gi"
             limits:
-              cpu: "1"
               memory: "1Gi"

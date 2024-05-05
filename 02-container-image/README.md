@@ -45,10 +45,13 @@ pack build book-service --builder docker.io/paketobuildpacks/builder-jammy-tiny 
 On ARM64 machines, use the following.
 
 ```shell
-pack build book-service --builder docker.io/dashaun/builder:tiny --env BP_JVM_VERSION=21
+pack build book-service \
+  --builder docker.io/paketobuildpacks/builder-jammy-buildpackless-tiny \
+  --buildpack gcr.io/paketo-buildpacks/java:beta \
+  --env BP_JVM_VERSION=21
 ```
 
-For Spring Boot projects, Buildpacks integration is provided directly by the Spring Boot plugins for [Maven](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image) and [Gradle](https://docs.spring.io/spring-boot/docs/3.0.0-RC1/gradle-plugin/reference/htmlsingle/#build-image), so you don't need to install any additional tool.
+For Spring Boot projects, Buildpacks integration is provided directly by the Spring Boot plugins for [Maven](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image) and [Gradle](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#build-image), so you don't need to install any additional tool.
 
 ```shell
 ./gradlew bootBuildImage
@@ -57,7 +60,7 @@ For Spring Boot projects, Buildpacks integration is provided directly by the Spr
 Either way, you can run the application as follows.
 
 ```shell
-docker-compose up -d
+docker compose up -d
 ```
 
 You can also debug the application from your IDE. Check out the configuration in the `docker-compose.yml` file, where the debug mode is enabled via convenient Buildpacks environment variables. Then, configure your IDE with a remote debugger on port `9090` and try out debugging the application while running as a container.

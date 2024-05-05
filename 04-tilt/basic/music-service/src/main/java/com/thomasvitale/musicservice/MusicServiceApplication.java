@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.reactive.function.server.RouterFunction;
-import org.springframework.web.reactive.function.server.RouterFunctions;
-import org.springframework.web.reactive.function.server.ServerResponse;
+import org.springframework.web.servlet.function.RouterFunction;
+import org.springframework.web.servlet.function.RouterFunctions;
+import org.springframework.web.servlet.function.ServerResponse;
 
 @SpringBootApplication
 public class MusicServiceApplication {
@@ -19,7 +19,7 @@ public class MusicServiceApplication {
 	@Bean
 	RouterFunction<ServerResponse> routerFunction() {
 		return RouterFunctions.route()
-			.GET("/", request -> ServerResponse.ok().bodyValue(List.of(
+			.GET("/", request -> ServerResponse.ok().body(List.of(
 				new Music("Måneskin"),
 				new Music("Guns n' Roses"),
 				new Music("Led Zeppelin")
