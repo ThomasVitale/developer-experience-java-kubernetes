@@ -40,3 +40,7 @@ Run the application on the local JVM as follows.
 
 Now, try making some changes to the application (for example, updating the REST API) and save.
 Spring Boot Developer Tools will automatically reload the application with the new classes.
+
+If you use Visual Studio Code, the live reload functionality works without any additional configuration. 
+
+If you use IntelliJ IDEA, refer to the [official documentation](https://www.jetbrains.com/help/idea/spring-boot.html#application-update-policies) to enable support for Spring Boot DevTools in the IDE.

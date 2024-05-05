@@ -68,6 +68,6 @@ You can also debug the application from your IDE. Check out the configuration in
 ## Live Reload
 
 Paketo, the Cloud Native Buildpacks implementation we used above, provides support for live-reload.
-You can enable it via the `BP_LIVE_RELOAD_ENABLED` environment variable, as demonstrated in `live-reload/book-service/build.gradle`.
+You can enable it via the `BP_LIVE_RELOAD_ENABLED` environment variable, as demonstrated in `live-reload/book-service/build.gradle`. For more information, refer to the [official documentation](https://paketo.io/docs/howto/java/#enable-process-reloading).
 
 Then, you would need a tool like Spring Boot Developer Tools to take care of loading into the images the changed classes every time they are updated. We'll use the live reload capabilities provided by Buildpacks when working with Tilt.
