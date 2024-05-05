@@ -16,11 +16,11 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
-      - name: Set up JDK
-        uses: actions/setup-java@v3
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
-          distribution: liberica
           java-version: 21
+          distribution: liberica
           cache: gradle
       - name: Build, unit tests and integration tests
         run: |
@@ -39,11 +39,11 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
-      - name: Set up JDK
-        uses: actions/setup-java@v3
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
-          distribution: liberica
           java-version: 21
+          distribution: liberica
           cache: gradle
       - name: Build container image
         run: |
@@ -51,11 +51,11 @@ jobs:
           chmod +x gradlew
           ./gradlew bootBuildImage \
             --imageName ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
-      - name: Log into container registry
+      - name: Authenticate with the container registry
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.MY_SECRET }}
+          password: ${{ secrets.IMAGE_PUSH_TOKEN }}
       - name: Publish container image
         run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
