@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: read
-      security-events: write
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
@@ -27,6 +26,7 @@ jobs:
           cd 06-knative/basic/book-service
           chmod +x gradlew
           ./gradlew build
+
   package:
     name: Package and Publish
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -35,27 +35,148 @@ jobs:
     permissions:
       contents: read
       packages: write
-      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - linux/amd64
+          - linux/arm64
     steps:
+      - name: Prepare
+        run: |
+          platform=${{ matrix.platform }}
+          echo "PLATFORM_PAIR=${platform//\//-}" >> $GITHUB_ENV
+
       - name: Checkout source code
         uses: actions/checkout@v4
-      - name: Set up Java
-        uses: actions/setup-java@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Pack
+        uses: buildpacks/github-actions/setup-pack@v5.0.0
         with:
-          java-version: 22
-          distribution: temurin
-          cache: gradle
-      - name: Build container image
-        run: |
-          cd 06-knative/basic/book-service
-          chmod +x gradlew
-          ./gradlew bootBuildImage \
-            --imageName ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
-      - name: Authenticate with the container registry
+          pack-version: 0.34.2
+
+      - name: Login to container registry
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.IMAGE_PUSH_TOKEN }}
-      - name: Publish container image
-        run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          registry: ${{ env.REGISTRY }}
+
+      - name: Build and publish OCI image
+        run: |
+          pack build ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \
+            --builder docker.io/paketobuildpacks/builder-jammy-buildpackless-tiny \
+            --buildpack gcr.io/paketo-buildpacks/java \
+            --env BP_JVM_VERSION=22 \
+            --path 06-knative/basic/book-service \
+            --platform ${{ matrix.platform }} \
+            --report-output-dir ./report.toml \
+            --publish
+
+      - name: Export digest
+        run: |
+          mkdir -p /tmp/digests
+          digest=$(grep 'digest' report.toml | sed 's/.*= "\(.*\)"/\1/')
+          touch "/tmp/digests/${digest#sha256:}"
+
+      - name: Upload digest
+        uses: actions/upload-artifact@v4
+        with:
+          name: digests-${{ env.IMAGE_NAME }}-${{ env.PLATFORM_PAIR }}
+          path: /tmp/digests/*
+          if-no-files-found: error
+          retention-days: 1
+
+  merge:
+    needs: [ package ]
+    runs-on: ubuntu-24.04
+    permissions:
+      attestations: write
+      contents: read
+      id-token: write
+      packages: write
+    outputs:
+      image-digest: ${{ steps.image-info.outputs.digest }}
+      image-name: ${{ steps.image-info.outputs.name }}
+    steps:
+
+      - name: Prepare
+        run: |
+          timestamp=$(date +%Y%m%d-%H%M%S)
+          echo "TIMESTAMP=${timestamp}" >> $GITHUB_ENV
+
+      - name: Download digests
+        uses: actions/download-artifact@v4
+        with:
+          path: /tmp/digests
+          pattern: digests-${{ env.IMAGE_NAME }}-*
+          merge-multiple: true
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3.5.0
+
+      - name: Generate Docker meta information
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          labels: |
+            org.opencontainers.image.licenses=Apache-2.0
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.version=${{ github.sha }}
+            org.opencontainers.image.url=${{ github.server_url }}/${{ github.repository }}
+          tags: |
+            type=raw,value=${{ env.TIMESTAMP }},enable={{is_default_branch}}
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,format=long
+
+      - name: Login to container registry
+        uses: docker/login-action@v3
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.IMAGE_PUSH_TOKEN }}
+          registry: ${{ env.REGISTRY }}
+
+      - name: Create manifest list and push
+        working-directory: /tmp/digests
+        run: |
+          docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
+            $(printf '${{ env.REGISTRY }}/${{ env.IMAGE }}@sha256:%s ' *)       
+
+      - name: Inspect image
+        run: |
+          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ steps.meta.outputs.version }}
+
+      - name: Setup Arkade
+        uses: alexellis/setup-arkade@v2
+
+      - name: Install crane
+        uses: alexellis/arkade-get@master
+        with:
+          crane: v0.19.2
+
+      - name: Get OCI image digest
+        id: image-info
+        run: |
+          image_digest=$(crane digest ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ steps.meta.outputs.version }})
+          echo $image_digest
+          echo "IMAGE_DIGEST=${image_digest}" >> $GITHUB_ENV
+
+      - name: Sign image
+        run: |
+          cosign sign --yes ${{ env.REGISTRY }}/${{ env.IMAGE }}@${{ env.IMAGE_DIGEST }}
+
+      - name: Generate SLSA Build Attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE }}
+          subject-digest: ${{ env.IMAGE_DIGEST }}
+          push-to-registry: true
+          github-token: ${{ secrets.push-token }}

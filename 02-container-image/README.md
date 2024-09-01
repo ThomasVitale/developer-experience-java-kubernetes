@@ -19,7 +19,7 @@ Then, package the application as a JAR.
 Explore the three different Dockerfiles with different levels of optimizations in terms of performance and security. You can build a container image as follows.
 
 ```shell
-docker build -f Dockerfile_v3 -t book-service .
+docker build -f Dockerfile_v3 -t book-service . --load
 ```
 
 You can run the application on Docker as follows.
@@ -39,16 +39,10 @@ cd buildpacks/book-service
 You can use the [`pack`](https://buildpacks.io/docs/tools/pack/) CLI from the Cloud Native Buildpacks project to package the application as a container image.
 
 ```shell
-pack build book-service --builder docker.io/paketobuildpacks/builder-jammy-tiny --env BP_JVM_VERSION=21
-```
-
-On ARM64 machines, use the following.
-
-```shell
 pack build book-service \
   --builder docker.io/paketobuildpacks/builder-jammy-buildpackless-tiny \
-  --buildpack gcr.io/paketo-buildpacks/java:beta \
-  --env BP_JVM_VERSION=21
+  --buildpack gcr.io/paketo-buildpacks/java \
+  --env BP_JVM_VERSION=22
 ```
 
 For Spring Boot projects, Buildpacks integration is provided directly by the Spring Boot plugins for [Maven](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image) and [Gradle](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#build-image), so you don't need to install any additional tool.
@@ -63,7 +57,7 @@ Either way, you can run the application as follows.
 docker compose up -d
 ```
 
-You can also debug the application from your IDE. Check out the configuration in the `docker-compose.yml` file, where the debug mode is enabled via convenient Buildpacks environment variables. Then, configure your IDE with a remote debugger on port `9090` and try out debugging the application while running as a container.
+You can also debug the application from your IDE. Check out the configuration in the `compose.yml` file, where the debug mode is enabled via convenient Buildpacks environment variables. Then, configure your IDE with a remote debugger on port `9090` and try out debugging the application while running as a container.
 
 ## Live Reload
 

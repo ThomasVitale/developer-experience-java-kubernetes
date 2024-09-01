@@ -33,7 +33,7 @@ The Skaffold setup in the `skaffold.yml` file is tuned to work with Visual Studi
 If you use IntelliJ IDEA, refer to the [official documentation](https://www.jetbrains.com/help/idea/spring-boot.html#application-update-policies) to enable live reload in the IDE. You also need to update the `skaffold.yml` file and change the folders monitored by Skaffold for the live reload functionality. For more information on how it works, refer to the Paketo [official documentation](https://paketo.io/docs/howto/java/#enable-process-reloading).
 
 ```yaml
-apiVersion: skaffold/v4beta10
+apiVersion: skaffold/v4beta11
 kind: Config
 metadata:
   name: book-service
@@ -41,11 +41,11 @@ build:
   artifacts:
     - image: book-service
       buildpacks:
-        # Change to docker.io/paketobuildpacks/builder-jammy-base on ARM64
-        builder: docker.io/dashaun/builder:base
-        trustBuilder: true
+        builder: docker.io/paketobuildpacks/builder-jammy-buildpackless-tiny
+        buildpacks:
+          - gcr.io/paketo-buildpacks/java
         env:
-          - BP_JVM_VERSION=21
+          - BP_JVM_VERSION=22
           - BP_LIVE_RELOAD_ENABLED=true
         dependencies:
           paths:

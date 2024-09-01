@@ -1,7 +1,7 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.2.5'
-	id 'io.spring.dependency-management' version '1.1.4'
+	id 'org.springframework.boot' version '3.3.3'
+	id 'io.spring.dependency-management' version '1.1.6'
 }
 
 group = 'com.thomasvitale'
@@ -9,7 +9,7 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	toolchain {
-		languageVersion.set(JavaLanguageVersion.of(21))
+		languageVersion = JavaLanguageVersion.of(22)
 	}
 }
 
@@ -22,7 +22,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
+	testImplementation 'org.springframework:spring-webflux'
 }
 
 tasks.named('test') {
@@ -34,12 +34,9 @@ tasks.named('jar') {
 }
 
 tasks.named('bootBuildImage') {
-	if (System.getProperty( "os.arch" ).toLowerCase().startsWith('aarch')) {
-		builder = "docker.io/dashaun/builder:base"
-	} else {
-		builder = "docker.io/paketobuildpacks/builder-jammy-base"
-	}
+	builder = "docker.io/paketobuildpacks/builder-jammy-buildpackless-tiny"
+	buildpacks = [ "gcr.io/paketo-buildpacks/java" ]
 
-	imageName = "book-service"
+	imageName = "music-service"
 	environment = ["BP_LIVE_RELOAD_ENABLED": "true"]
 }

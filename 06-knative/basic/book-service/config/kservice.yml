@@ -7,6 +7,6 @@ spec:
     spec:
       containers:
         - name: book-service
-          image: ghcr.io/thomasvitale/devex/book-service-arm64
+          image: ghcr.io/thomasvitale/devex/book-service
           ports:
             - containerPort: 8080

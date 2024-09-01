@@ -19,7 +19,7 @@ public class MusicServiceApplication {
 	@Bean
 	RouterFunction<ServerResponse> routerFunction() {
 		return RouterFunctions.route()
-			.GET("/", request -> ServerResponse.ok().body(List.of(
+			.GET("/", _ -> ServerResponse.ok().body(List.of(
 				new Music("Måneskin"),
 				new Music("Guns n' Roses"),
 				new Music("Led Zeppelin")
