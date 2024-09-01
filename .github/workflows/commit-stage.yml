@@ -148,11 +148,11 @@ jobs:
         working-directory: /tmp/digests
         run: |
           docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
-            $(printf '${{ env.REGISTRY }}/${{ env.IMAGE }}@sha256:%s ' *)       
+            $(printf '${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@sha256:%s ' *)       
 
       - name: Inspect image
         run: |
-          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ steps.meta.outputs.version }}
+          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}
 
       - name: Setup Arkade
         uses: alexellis/setup-arkade@v2
@@ -165,18 +165,18 @@ jobs:
       - name: Get OCI image digest
         id: image-info
         run: |
-          image_digest=$(crane digest ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ steps.meta.outputs.version }})
+          image_digest=$(crane digest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }})
           echo $image_digest
           echo "IMAGE_DIGEST=${image_digest}" >> $GITHUB_ENV
 
       - name: Sign image
         run: |
-          cosign sign --yes ${{ env.REGISTRY }}/${{ env.IMAGE }}@${{ env.IMAGE_DIGEST }}
+          cosign sign --yes ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ env.IMAGE_DIGEST }}
 
       - name: Generate SLSA Build Attestation
         uses: actions/attest-build-provenance@v1
         with:
-          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE }}
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           subject-digest: ${{ env.IMAGE_DIGEST }}
           push-to-registry: true
           github-token: ${{ secrets.push-token }}
