@@ -179,4 +179,4 @@ jobs:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           subject-digest: ${{ env.IMAGE_DIGEST }}
           push-to-registry: true
-          github-token: ${{ secrets.push-token }}
+          github-token: ${{ secrets.IMAGE_PUSH_TOKEN }}
