@@ -1,0 +1,10 @@
+services:
+  demo:
+    container_name: demo
+    image: demo
+    ports:
+      - "8080:8080"
+      - "9090:9090"
+    environment:
+      BPL_DEBUG_ENABLED: "true"
+      BPL_DEBUG_PORT: 9090

@@ -1,0 +1,9 @@
+services:
+  demo:
+    container_name: demo
+    image: demo
+    ports:
+      - "8080:8080"
+      - "8181:8181"
+    environment:
+      JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8181"
