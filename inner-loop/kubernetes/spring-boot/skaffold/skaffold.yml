@@ -5,24 +5,25 @@ metadata:
 build:
   artifacts:
     - image: demo
-      buildpacks:
-        builder: docker.io/paketobuildpacks/builder-noble-java-tiny
-        env:
-          - BP_JVM_VERSION=24
-          - BP_LIVE_RELOAD_ENABLED=true
+      custom:
+        buildCommand: ./gradlew bootBuildImage --imageName=$IMAGE --runImage docker.io/paketobuildpacks/ubuntu-noble-run-base
         dependencies:
           paths:
             - build.gradle
             - src/main/resources
-            - bin/main
+            - build/classes/java/main
+            #- bin/main
       sync:
         manual:
           - src: "src/main/resources/**/*"
             dest: /workspace/BOOT-INF/classes
             strip: src/main/resources/
-          - src: "bin/main/**/*"
+          # - src: "bin/main/**/*"
+          #   dest: /workspace/BOOT-INF/classes
+          #   strip: bin/main/
+          - src: "build/classes/java/main/**/*"
             dest: /workspace/BOOT-INF/classes
-            strip: bin/main/
+            strip: build/classes/java/main/
 
 manifests:
   rawYaml:

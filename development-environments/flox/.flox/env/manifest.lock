@@ -1,0 +1,370 @@
+{
+  "lockfile-version": 1,
+  "manifest": {
+    "version": 1,
+    "install": {
+      "arconia-cli-flake": {
+        "flake": "github:thomasvitale/arconia-cli-flake"
+      },
+      "httpie": {
+        "pkg-path": "httpie"
+      },
+      "jbang": {
+        "pkg-path": "jbang"
+      }
+    },
+    "vars": {
+      "FLOX_DISABLE_METRICS": "true"
+    },
+    "hook": {
+      "on-activate": "  eval $(jbang jdk env 24)\n\n  echo \"\"\n  echo \"Run Spring Boot with 'arconia dev'\"\n  echo \"\"\n"
+    },
+    "profile": {},
+    "options": {
+      "systems": [
+        "aarch64-darwin",
+        "aarch64-linux",
+        "x86_64-darwin",
+        "x86_64-linux"
+      ]
+    }
+  },
+  "packages": [
+    {
+      "attr_path": "httpie",
+      "broken": false,
+      "derivation": "/nix/store/5nbs5n5kyfsq3c4yry5rhf7fasw6czqg-python3.12-httpie-3.2.4.drv",
+      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
+      "install_id": "httpie",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "name": "httpie-3.2.4",
+      "pname": "httpie",
+      "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "rev_count": 791944,
+      "rev_date": "2025-04-29T12:35:57Z",
+      "scrape_date": "2025-04-30T04:19:45.918931Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.2.4",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/n8yfbyikd4hnd0f0xkqsnvikxy7mrvj1-python3.12-httpie-3.2.4-dist",
+        "out": "/nix/store/ns2krspnj9618mpizk4jamgiwdccrj5d-python3.12-httpie-3.2.4"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "httpie",
+      "broken": false,
+      "derivation": "/nix/store/c18jz3xz62h9zv5wqy2iz9992wyzv7pj-python3.12-httpie-3.2.4.drv",
+      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
+      "install_id": "httpie",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "name": "httpie-3.2.4",
+      "pname": "httpie",
+      "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "rev_count": 791944,
+      "rev_date": "2025-04-29T12:35:57Z",
+      "scrape_date": "2025-04-30T04:38:32.603983Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.2.4",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/9mrnc2mfqpzkcnn7z9azwv0rblwg74wf-python3.12-httpie-3.2.4-dist",
+        "out": "/nix/store/lpa7hvydfdr9yffizm3yjvllpdnkh74y-python3.12-httpie-3.2.4"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "httpie",
+      "broken": false,
+      "derivation": "/nix/store/40ym7xma2izhivrny5i0zysdc0dpbhsk-python3.12-httpie-3.2.4.drv",
+      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
+      "install_id": "httpie",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "name": "httpie-3.2.4",
+      "pname": "httpie",
+      "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "rev_count": 791944,
+      "rev_date": "2025-04-29T12:35:57Z",
+      "scrape_date": "2025-04-30T04:56:07.721365Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.2.4",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/s0vl58cxlh9xrk0z1f6xv9ax46z5dhpd-python3.12-httpie-3.2.4-dist",
+        "out": "/nix/store/jlkdkscx6xrlhjgxl0psrkqcj1b053xh-python3.12-httpie-3.2.4"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "httpie",
+      "broken": false,
+      "derivation": "/nix/store/vflkw90myrx0mmwph558xqi0dck9sq6x-python3.12-httpie-3.2.4.drv",
+      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
+      "install_id": "httpie",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "name": "httpie-3.2.4",
+      "pname": "httpie",
+      "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "rev_count": 791944,
+      "rev_date": "2025-04-29T12:35:57Z",
+      "scrape_date": "2025-04-30T05:20:39.078325Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.2.4",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/c4r7g0rlb52mlvqxhag0w24brmc2p8fk-python3.12-httpie-3.2.4-dist",
+        "out": "/nix/store/j9ya9sdqqvbcvila7fvmpzpkdsxgaa2m-python3.12-httpie-3.2.4"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "jbang",
+      "broken": false,
+      "derivation": "/nix/store/f7mw9wgrrswbcab3rxji6f6biyjh939i-jbang-0.125.1.drv",
+      "description": "Run java as scripts anywhere",
+      "install_id": "jbang",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "name": "jbang-0.125.1",
+      "pname": "jbang",
+      "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "rev_count": 791944,
+      "rev_date": "2025-04-29T12:35:57Z",
+      "scrape_date": "2025-04-30T04:19:46.080908Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.125.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/083m71qqayzz3jrh26y2z2i4avsz2x4f-jbang-0.125.1"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "jbang",
+      "broken": false,
+      "derivation": "/nix/store/q58bf8ydxgm921wj53pz0h5qqb4c9f4m-jbang-0.125.1.drv",
+      "description": "Run java as scripts anywhere",
+      "install_id": "jbang",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "name": "jbang-0.125.1",
+      "pname": "jbang",
+      "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "rev_count": 791944,
+      "rev_date": "2025-04-29T12:35:57Z",
+      "scrape_date": "2025-04-30T04:38:32.978662Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.125.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/3wjpyz87ig89n28q3p6rvj0v37xyq11c-jbang-0.125.1"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "jbang",
+      "broken": false,
+      "derivation": "/nix/store/m5xay4dkdcvkbnki2c8x8m39a8ddyyyp-jbang-0.125.1.drv",
+      "description": "Run java as scripts anywhere",
+      "install_id": "jbang",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "name": "jbang-0.125.1",
+      "pname": "jbang",
+      "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "rev_count": 791944,
+      "rev_date": "2025-04-29T12:35:57Z",
+      "scrape_date": "2025-04-30T04:56:07.888882Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.125.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/55h4ia8l476c2ka4w73vhhfyq135li5y-jbang-0.125.1"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "jbang",
+      "broken": false,
+      "derivation": "/nix/store/cflgn2bil4c1jq31b0vb1dfjjcpaacxy-jbang-0.125.1.drv",
+      "description": "Run java as scripts anywhere",
+      "install_id": "jbang",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "name": "jbang-0.125.1",
+      "pname": "jbang",
+      "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+      "rev_count": 791944,
+      "rev_date": "2025-04-29T12:35:57Z",
+      "scrape_date": "2025-04-30T05:20:39.512784Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.125.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/d13gcq46ixnm0jwrndj7j8rmrsqnyxy3-jbang-0.125.1"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "install_id": "arconia-cli-flake",
+      "locked-url": "github:thomasvitale/arconia-cli-flake/b69d4b4514c96612afadb69197f56185ebd8f4b6?narHash=sha256-8SVfS0g27/2Mtf09nJurSUTSykdU4/Vph1LhF/yqzg4%3D",
+      "flake-description": "Arconia CLI",
+      "locked-flake-attr-path": "packages.aarch64-darwin.default",
+      "derivation": "/nix/store/9ln2d19bysngwvx0ifp84c4d15iv3x0s-arconia-0.2.4.drv",
+      "outputs": {
+        "out": "/nix/store/0nch4fpgbpbiwk602xfdbfw648y5rsr2-arconia-0.2.4"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "aarch64-darwin",
+      "system": "aarch64-darwin",
+      "name": "arconia-0.2.4",
+      "pname": "arconia",
+      "version": "0.2.4",
+      "broken": false,
+      "unfree": false,
+      "priority": 5
+    },
+    {
+      "install_id": "arconia-cli-flake",
+      "locked-url": "github:thomasvitale/arconia-cli-flake/b69d4b4514c96612afadb69197f56185ebd8f4b6?narHash=sha256-8SVfS0g27/2Mtf09nJurSUTSykdU4/Vph1LhF/yqzg4%3D",
+      "flake-description": "Arconia CLI",
+      "locked-flake-attr-path": "packages.aarch64-linux.default",
+      "derivation": "/nix/store/ahnfbh7ijxy02nb0dnmnmyk6s0mhr76h-arconia-0.2.4.drv",
+      "outputs": {
+        "out": "/nix/store/p82pmampjkmhlffaznbcblh97k3r8f5v-arconia-0.2.4"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "aarch64-linux",
+      "system": "aarch64-linux",
+      "name": "arconia-0.2.4",
+      "pname": "arconia",
+      "version": "0.2.4",
+      "broken": false,
+      "unfree": false,
+      "priority": 5
+    },
+    {
+      "install_id": "arconia-cli-flake",
+      "locked-url": "github:thomasvitale/arconia-cli-flake/b69d4b4514c96612afadb69197f56185ebd8f4b6?narHash=sha256-8SVfS0g27/2Mtf09nJurSUTSykdU4/Vph1LhF/yqzg4%3D",
+      "flake-description": "Arconia CLI",
+      "locked-flake-attr-path": "packages.x86_64-darwin.default",
+      "derivation": "/nix/store/ln72bd07bqjjcvkqpxc28ahq60qgzw40-arconia-0.2.4.drv",
+      "outputs": {
+        "out": "/nix/store/nbq2ibi86w9yaakl1wa2hcrhlwkpqd83-arconia-0.2.4"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "x86_64-darwin",
+      "system": "x86_64-darwin",
+      "name": "arconia-0.2.4",
+      "pname": "arconia",
+      "version": "0.2.4",
+      "broken": false,
+      "unfree": false,
+      "priority": 5
+    },
+    {
+      "install_id": "arconia-cli-flake",
+      "locked-url": "github:thomasvitale/arconia-cli-flake/b69d4b4514c96612afadb69197f56185ebd8f4b6?narHash=sha256-8SVfS0g27/2Mtf09nJurSUTSykdU4/Vph1LhF/yqzg4%3D",
+      "flake-description": "Arconia CLI",
+      "locked-flake-attr-path": "packages.x86_64-linux.default",
+      "derivation": "/nix/store/7wk0acwp81d1p9yr3h8bnhl89w49pvxh-arconia-0.2.4.drv",
+      "outputs": {
+        "out": "/nix/store/9amnlq7fba4h98d69rnc66iwfd5jsmjm-arconia-0.2.4"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "x86_64-linux",
+      "system": "x86_64-linux",
+      "name": "arconia-0.2.4",
+      "pname": "arconia",
+      "version": "0.2.4",
+      "broken": false,
+      "unfree": false,
+      "priority": 5
+    }
+  ]
+}

@@ -43,7 +43,7 @@ http localhost:9090/books
 When you're done, you can undeploy the application as follows:
 
 ```shell
-kapp delete -a demo
+kapp delete -a demo -y
 ```
 
 ## Knative
