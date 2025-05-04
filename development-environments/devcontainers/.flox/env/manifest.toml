@@ -1,0 +1,42 @@
+version = 1
+
+[install]
+jbang.pkg-path = "jbang"
+httpie.pkg-path = "httpie"
+arconia-cli-flake.flake = "github:thomasvitale/arconia-cli-flake"
+
+[vars]
+FLOX_DISABLE_METRICS="true"
+
+[hook]
+on-activate = """
+  eval $(jbang jdk env 24)
+"""
+
+[profile]
+# common = '''
+#   gum style \
+#   --foreground 212 --border-foreground 212 --border double \
+#   --align center --width 50 --margin "1 2" --padding "2 4" \
+#     $INTRO_MESSAGE
+# '''
+## Shell specific profiles go here:
+# bash = ...
+# zsh  = ...
+# fish = ...
+
+[services]
+# myservice.command = "python3 -m http.server"
+
+[include]
+# environments = [
+#     { dir = "../common" }
+# ]
+
+[options]
+systems = [
+  "aarch64-darwin",
+  "aarch64-linux",
+  "x86_64-darwin",
+  "x86_64-linux",
+]

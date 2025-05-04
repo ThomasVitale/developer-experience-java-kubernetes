@@ -1,0 +1,33 @@
+{
+	"name": "Java",
+	"image": "mcr.microsoft.com/devcontainers/java",
+
+	"features": {
+    "ghcr.io/thomasvitale/devcontainers-features/flox:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
+
+  "postCreateCommand": "flox activate",
+
+	"customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+          "vscjava.vscode-java-pack",
+          "vscjava.vscode-java-debug",
+          "vscjava.vscode-java-dependency",
+          "vscjava.vscode-java-test",
+          "redhat.java",
+          "redhat.vscode-yaml",
+          "vmware.vscode-boot-dev-pack",
+          //"flox.flox",
+          // Excluding the Gradle extension as it breaks the Spring Boot DevTools
+          "-vscjava.vscode-gradle"
+      ]
+    }
+  },
+
+  "forwardPorts": [
+    8080
+  ]
+}
