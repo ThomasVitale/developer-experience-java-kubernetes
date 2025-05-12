@@ -1,35 +1,53 @@
 {
 	"name": "Java",
-	"image": "mcr.microsoft.com/devcontainers/java",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
 
 	"features": {
-    // "ghcr.io/thomasvitale/devcontainers-features/flox:1": {},
-    "ghcr.io/devcontainers/features/nix:1": {},
+        "ghcr.io/devcontainers/features/nix:1": {
+            "extraNixConfig": "extra-trusted-substituters = https://cache.flox.dev, extra-trusted-public-keys = flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
+        },
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "24",
+            "jdkDistro": "graalce"
+        },
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
 	},
 
-  //"postCreateCommand": "flox activate",
-  "postCreateCommand": ".devcontainer/install-flox.sh && flox activate",
+    "postCreateCommand": ".devcontainer/postCreateCommand.sh && flox activate",
 
 	"customizations": {
-    "vscode": {
-      "settings": {},
-      "extensions": [
-          "vscjava.vscode-java-pack",
-          "vscjava.vscode-java-debug",
-          "vscjava.vscode-java-dependency",
-          "vscjava.vscode-java-test",
-          "redhat.java",
-          "redhat.vscode-yaml",
-          "vmware.vscode-boot-dev-pack",
-          //"flox.flox",
-          // Excluding the Gradle extension as it breaks the Spring Boot DevTools
-          "-vscjava.vscode-gradle"
-      ]
-    }
-  },
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash",
+                        "args": ["-c", "flox activate && exec bash"]
+                    }
+                }
+            },
+            "extensions": [
+                // Language Support for Java(TM) by Red Hat
+                "redhat.java",
+                // Debugger for Java
+                "vscjava.vscode-java-debug",
+                // Test Runner for Java
+                "vscjava.vscode-java-test",
+                // Project Manager for Java
+                "vscjava.vscode-java-dependency",
+                // IntelliCode
+                "VisualStudioExptTeam.vscodeintellicode",
 
-  "forwardPorts": [
-    8080
-  ]
+                // Spring Boot Extension Pack
+                "vmware.vscode-boot-dev-pack",
+
+                // YAML
+                "redhat.vscode-yaml"
+            ]
+        }
+    },
+
+    "forwardPorts": [
+        8080
+    ]
 }

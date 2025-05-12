@@ -1,17 +1,18 @@
 version = 1
 
 [install]
-jbang.pkg-path = "jbang"
 httpie.pkg-path = "httpie"
-arconia-cli-flake.flake = "github:thomasvitale/arconia-cli-flake"
+graalvm-ce.pkg-path = "graalvm-ce"
+graalvm-ce.version = "24.0.1"
 
 [vars]
 FLOX_DISABLE_METRICS="true"
 
 [hook]
-on-activate = """
-  eval $(jbang jdk env 24)
-"""
+# on-activate = """
+#   export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+#   export PATH=$JAVA_HOME/bin:$PATH
+# """
 
 [profile]
 # common = '''

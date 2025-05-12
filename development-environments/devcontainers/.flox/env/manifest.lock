@@ -3,22 +3,18 @@
   "manifest": {
     "version": 1,
     "install": {
-      "arconia-cli-flake": {
-        "flake": "github:thomasvitale/arconia-cli-flake"
+      "graalvm-ce": {
+        "pkg-path": "graalvm-ce",
+        "version": "24.0.1"
       },
       "httpie": {
         "pkg-path": "httpie"
-      },
-      "jbang": {
-        "pkg-path": "jbang"
       }
     },
     "vars": {
       "FLOX_DISABLE_METRICS": "true"
     },
-    "hook": {
-      "on-activate": "  eval $(jbang jdk env 24)\n"
-    },
+    "hook": {},
     "profile": {},
     "options": {
       "systems": [
@@ -31,19 +27,135 @@
   },
   "packages": [
     {
+      "attr_path": "graalvm-ce",
+      "broken": false,
+      "derivation": "/nix/store/a0gpbdnqdb8hk3qwqznlbk7zkxagxabx-graalvm-ce-24.0.1.drv",
+      "description": "High-Performance Polyglot VM",
+      "install_id": "graalvm-ce",
+      "license": "[ UPL-1.0, GPL-2.0-with-classpath-exception, BSD-3-Clause ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "name": "graalvm-ce-24.0.1",
+      "pname": "graalvm-ce",
+      "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "rev_count": 796699,
+      "rev_date": "2025-05-08T00:12:27Z",
+      "scrape_date": "2025-05-10T04:25:11.455059Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "24.0.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/mx0qs6qjw7r33gm0y7dzmh4x2ibjgg3p-graalvm-ce-24.0.1"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "graalvm-ce",
+      "broken": false,
+      "derivation": "/nix/store/7mk7w9j5b197khzb83g77mprd29vjdgj-graalvm-ce-24.0.1.drv",
+      "description": "High-Performance Polyglot VM",
+      "install_id": "graalvm-ce",
+      "license": "[ UPL-1.0, GPL-2.0-with-classpath-exception, BSD-3-Clause ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "name": "graalvm-ce-24.0.1",
+      "pname": "graalvm-ce",
+      "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "rev_count": 796699,
+      "rev_date": "2025-05-08T00:12:27Z",
+      "scrape_date": "2025-05-10T04:53:42.184219Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "24.0.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/kamchh9i1mfg2qdwcyaava10yphrckr0-graalvm-ce-24.0.1"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "graalvm-ce",
+      "broken": false,
+      "derivation": "/nix/store/xxbgshy113zz97kzmribfb2hlhng5m87-graalvm-ce-24.0.1.drv",
+      "description": "High-Performance Polyglot VM",
+      "install_id": "graalvm-ce",
+      "license": "[ UPL-1.0, GPL-2.0-with-classpath-exception, BSD-3-Clause ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "name": "graalvm-ce-24.0.1",
+      "pname": "graalvm-ce",
+      "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "rev_count": 796699,
+      "rev_date": "2025-05-08T00:12:27Z",
+      "scrape_date": "2025-05-10T05:23:20.916972Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "24.0.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/a7xiipb6c1gdsg5566b3bvvs0hl745y5-graalvm-ce-24.0.1"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "graalvm-ce",
+      "broken": false,
+      "derivation": "/nix/store/jyzizgvf17mphl2kk8c9sdmn5wyypkvx-graalvm-ce-24.0.1.drv",
+      "description": "High-Performance Polyglot VM",
+      "install_id": "graalvm-ce",
+      "license": "[ UPL-1.0, GPL-2.0-with-classpath-exception, BSD-3-Clause ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "name": "graalvm-ce-24.0.1",
+      "pname": "graalvm-ce",
+      "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "rev_count": 796699,
+      "rev_date": "2025-05-08T00:12:27Z",
+      "scrape_date": "2025-05-10T05:58:24.755012Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "24.0.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/nyshs9hna7s6mpqpiib70jfxgz292v36-graalvm-ce-24.0.1"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
       "attr_path": "httpie",
       "broken": false,
-      "derivation": "/nix/store/5nbs5n5kyfsq3c4yry5rhf7fasw6czqg-python3.12-httpie-3.2.4.drv",
+      "derivation": "/nix/store/a5ppb1xihsjg7gd1rfc9i17gfa8yz800-python3.12-httpie-3.2.4.drv",
       "description": "Command line HTTP client whose goal is to make CLI human-friendly",
       "install_id": "httpie",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7a2622e2c0dbad5c4493cb268aba12896e28b008",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=dda3dcd3fe03e991015e9a74b22d35950f264a54",
       "name": "httpie-3.2.4",
       "pname": "httpie",
-      "rev": "7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "rev_count": 793418,
-      "rev_date": "2025-05-03T00:41:22Z",
-      "scrape_date": "2025-05-04T04:19:38.066938Z",
+      "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "rev_count": 796699,
+      "rev_date": "2025-05-08T00:12:27Z",
+      "scrape_date": "2025-05-10T04:25:11.622901Z",
       "stabilities": [
         "unstable"
       ],
@@ -53,8 +165,8 @@
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/n8yfbyikd4hnd0f0xkqsnvikxy7mrvj1-python3.12-httpie-3.2.4-dist",
-        "out": "/nix/store/ns2krspnj9618mpizk4jamgiwdccrj5d-python3.12-httpie-3.2.4"
+        "dist": "/nix/store/vqnr7bbp8zia3qlxz5vdks3gmb2nbci9-python3.12-httpie-3.2.4-dist",
+        "out": "/nix/store/2q7rqmq41wb44nhi1bair0pqdvj8qvlk-python3.12-httpie-3.2.4"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -63,17 +175,17 @@
     {
       "attr_path": "httpie",
       "broken": false,
-      "derivation": "/nix/store/c18jz3xz62h9zv5wqy2iz9992wyzv7pj-python3.12-httpie-3.2.4.drv",
+      "derivation": "/nix/store/d8fj3lkyw56k9l8xfnd11aw9x750mqgg-python3.12-httpie-3.2.4.drv",
       "description": "Command line HTTP client whose goal is to make CLI human-friendly",
       "install_id": "httpie",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7a2622e2c0dbad5c4493cb268aba12896e28b008",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=dda3dcd3fe03e991015e9a74b22d35950f264a54",
       "name": "httpie-3.2.4",
       "pname": "httpie",
-      "rev": "7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "rev_count": 793418,
-      "rev_date": "2025-05-03T00:41:22Z",
-      "scrape_date": "2025-05-04T04:37:46.105835Z",
+      "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "rev_count": 796699,
+      "rev_date": "2025-05-08T00:12:27Z",
+      "scrape_date": "2025-05-10T04:53:42.876907Z",
       "stabilities": [
         "unstable"
       ],
@@ -83,8 +195,8 @@
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/9mrnc2mfqpzkcnn7z9azwv0rblwg74wf-python3.12-httpie-3.2.4-dist",
-        "out": "/nix/store/lpa7hvydfdr9yffizm3yjvllpdnkh74y-python3.12-httpie-3.2.4"
+        "dist": "/nix/store/3vm216h7rvp8ywjz18d4mnh8bjppf0as-python3.12-httpie-3.2.4-dist",
+        "out": "/nix/store/0sss39gxk87pgvm0r0ggp6r13c5zfpjf-python3.12-httpie-3.2.4"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -93,17 +205,17 @@
     {
       "attr_path": "httpie",
       "broken": false,
-      "derivation": "/nix/store/40ym7xma2izhivrny5i0zysdc0dpbhsk-python3.12-httpie-3.2.4.drv",
+      "derivation": "/nix/store/59gq7813n7b9a6yc60l9a9dk5qy5d7g9-python3.12-httpie-3.2.4.drv",
       "description": "Command line HTTP client whose goal is to make CLI human-friendly",
       "install_id": "httpie",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7a2622e2c0dbad5c4493cb268aba12896e28b008",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=dda3dcd3fe03e991015e9a74b22d35950f264a54",
       "name": "httpie-3.2.4",
       "pname": "httpie",
-      "rev": "7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "rev_count": 793418,
-      "rev_date": "2025-05-03T00:41:22Z",
-      "scrape_date": "2025-05-04T04:55:04.733537Z",
+      "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "rev_count": 796699,
+      "rev_date": "2025-05-08T00:12:27Z",
+      "scrape_date": "2025-05-10T05:23:21.083917Z",
       "stabilities": [
         "unstable"
       ],
@@ -113,8 +225,8 @@
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/s0vl58cxlh9xrk0z1f6xv9ax46z5dhpd-python3.12-httpie-3.2.4-dist",
-        "out": "/nix/store/jlkdkscx6xrlhjgxl0psrkqcj1b053xh-python3.12-httpie-3.2.4"
+        "dist": "/nix/store/gqa11qlhhbfkzpjgvlpygsrcvljskvd8-python3.12-httpie-3.2.4-dist",
+        "out": "/nix/store/jl26n6zl5j57m0fgal3q5yil1pz7w5c8-python3.12-httpie-3.2.4"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -123,17 +235,17 @@
     {
       "attr_path": "httpie",
       "broken": false,
-      "derivation": "/nix/store/vflkw90myrx0mmwph558xqi0dck9sq6x-python3.12-httpie-3.2.4.drv",
+      "derivation": "/nix/store/z7ss7g5q319k3xiwbz6617rav7yx1fhk-python3.12-httpie-3.2.4.drv",
       "description": "Command line HTTP client whose goal is to make CLI human-friendly",
       "install_id": "httpie",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7a2622e2c0dbad5c4493cb268aba12896e28b008",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=dda3dcd3fe03e991015e9a74b22d35950f264a54",
       "name": "httpie-3.2.4",
       "pname": "httpie",
-      "rev": "7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "rev_count": 793418,
-      "rev_date": "2025-05-03T00:41:22Z",
-      "scrape_date": "2025-05-04T05:18:08.514228Z",
+      "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "rev_count": 796699,
+      "rev_date": "2025-05-08T00:12:27Z",
+      "scrape_date": "2025-05-10T05:58:25.475946Z",
       "stabilities": [
         "unstable"
       ],
@@ -143,227 +255,11 @@
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/c4r7g0rlb52mlvqxhag0w24brmc2p8fk-python3.12-httpie-3.2.4-dist",
-        "out": "/nix/store/j9ya9sdqqvbcvila7fvmpzpkdsxgaa2m-python3.12-httpie-3.2.4"
+        "dist": "/nix/store/rbicxiz6rz2ji6h0m555zv20k12j4rn2-python3.12-httpie-3.2.4-dist",
+        "out": "/nix/store/wbszs2bz89s2jj6in3mdcwzldvlwgwyi-python3.12-httpie-3.2.4"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "jbang",
-      "broken": false,
-      "derivation": "/nix/store/f7mw9wgrrswbcab3rxji6f6biyjh939i-jbang-0.125.1.drv",
-      "description": "Run java as scripts anywhere",
-      "install_id": "jbang",
-      "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "name": "jbang-0.125.1",
-      "pname": "jbang",
-      "rev": "7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "rev_count": 793418,
-      "rev_date": "2025-05-03T00:41:22Z",
-      "scrape_date": "2025-05-04T04:19:38.230014Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "0.125.1",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/083m71qqayzz3jrh26y2z2i4avsz2x4f-jbang-0.125.1"
-      },
-      "system": "aarch64-darwin",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "jbang",
-      "broken": false,
-      "derivation": "/nix/store/q58bf8ydxgm921wj53pz0h5qqb4c9f4m-jbang-0.125.1.drv",
-      "description": "Run java as scripts anywhere",
-      "install_id": "jbang",
-      "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "name": "jbang-0.125.1",
-      "pname": "jbang",
-      "rev": "7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "rev_count": 793418,
-      "rev_date": "2025-05-03T00:41:22Z",
-      "scrape_date": "2025-05-04T04:37:46.500432Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "0.125.1",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/3wjpyz87ig89n28q3p6rvj0v37xyq11c-jbang-0.125.1"
-      },
-      "system": "aarch64-linux",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "jbang",
-      "broken": false,
-      "derivation": "/nix/store/m5xay4dkdcvkbnki2c8x8m39a8ddyyyp-jbang-0.125.1.drv",
-      "description": "Run java as scripts anywhere",
-      "install_id": "jbang",
-      "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "name": "jbang-0.125.1",
-      "pname": "jbang",
-      "rev": "7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "rev_count": 793418,
-      "rev_date": "2025-05-03T00:41:22Z",
-      "scrape_date": "2025-05-04T04:55:04.901627Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "0.125.1",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/55h4ia8l476c2ka4w73vhhfyq135li5y-jbang-0.125.1"
-      },
-      "system": "x86_64-darwin",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "jbang",
-      "broken": false,
-      "derivation": "/nix/store/cflgn2bil4c1jq31b0vb1dfjjcpaacxy-jbang-0.125.1.drv",
-      "description": "Run java as scripts anywhere",
-      "install_id": "jbang",
-      "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "name": "jbang-0.125.1",
-      "pname": "jbang",
-      "rev": "7a2622e2c0dbad5c4493cb268aba12896e28b008",
-      "rev_count": 793418,
-      "rev_date": "2025-05-03T00:41:22Z",
-      "scrape_date": "2025-05-04T05:18:08.938330Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "0.125.1",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/d13gcq46ixnm0jwrndj7j8rmrsqnyxy3-jbang-0.125.1"
-      },
-      "system": "x86_64-linux",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "install_id": "arconia-cli-flake",
-      "locked-url": "github:thomasvitale/arconia-cli-flake/b0d9403de544f8d0d0e969cf5d7663a0c92288bc?narHash=sha256-mNn9/d0qkRmzTgZo%2BIyu7yQGd0oq0aCSE%2BGR8EZunr4%3D",
-      "flake-description": "Arconia CLI",
-      "locked-flake-attr-path": "packages.aarch64-darwin.default",
-      "derivation": "/nix/store/smy10kik59yczhwcllp2373d33bkl16y-arconia-0.2.4.drv",
-      "outputs": {
-        "out": "/nix/store/5j1xj8h6kjw44impgfsnwhig7f5by1a6-arconia-0.2.4"
-      },
-      "output-names": [
-        "out"
-      ],
-      "outputs-to-install": [
-        "out"
-      ],
-      "requested-outputs-to-install": [],
-      "package-system": "aarch64-darwin",
-      "system": "aarch64-darwin",
-      "name": "arconia-0.2.4",
-      "pname": "arconia",
-      "version": "0.2.4",
-      "broken": false,
-      "unfree": false,
-      "priority": 5
-    },
-    {
-      "install_id": "arconia-cli-flake",
-      "locked-url": "github:thomasvitale/arconia-cli-flake/b0d9403de544f8d0d0e969cf5d7663a0c92288bc?narHash=sha256-mNn9/d0qkRmzTgZo%2BIyu7yQGd0oq0aCSE%2BGR8EZunr4%3D",
-      "flake-description": "Arconia CLI",
-      "locked-flake-attr-path": "packages.aarch64-linux.default",
-      "derivation": "/nix/store/z4hrcwcn3l6syxw34np4jba9dqphbry8-arconia-0.2.4.drv",
-      "outputs": {
-        "out": "/nix/store/69x0g7aagc28dxwpapal0dwfw2wxlsfx-arconia-0.2.4"
-      },
-      "output-names": [
-        "out"
-      ],
-      "outputs-to-install": [
-        "out"
-      ],
-      "requested-outputs-to-install": [],
-      "package-system": "aarch64-linux",
-      "system": "aarch64-linux",
-      "name": "arconia-0.2.4",
-      "pname": "arconia",
-      "version": "0.2.4",
-      "broken": false,
-      "unfree": false,
-      "priority": 5
-    },
-    {
-      "install_id": "arconia-cli-flake",
-      "locked-url": "github:thomasvitale/arconia-cli-flake/b0d9403de544f8d0d0e969cf5d7663a0c92288bc?narHash=sha256-mNn9/d0qkRmzTgZo%2BIyu7yQGd0oq0aCSE%2BGR8EZunr4%3D",
-      "flake-description": "Arconia CLI",
-      "locked-flake-attr-path": "packages.x86_64-darwin.default",
-      "derivation": "/nix/store/ha5206wvdqxrhh22ssqwcfaxflp48p5y-arconia-0.2.4.drv",
-      "outputs": {
-        "out": "/nix/store/bn3y878gs0id2y5nningahn6x1aj4hfn-arconia-0.2.4"
-      },
-      "output-names": [
-        "out"
-      ],
-      "outputs-to-install": [
-        "out"
-      ],
-      "requested-outputs-to-install": [],
-      "package-system": "x86_64-darwin",
-      "system": "x86_64-darwin",
-      "name": "arconia-0.2.4",
-      "pname": "arconia",
-      "version": "0.2.4",
-      "broken": false,
-      "unfree": false,
-      "priority": 5
-    },
-    {
-      "install_id": "arconia-cli-flake",
-      "locked-url": "github:thomasvitale/arconia-cli-flake/b0d9403de544f8d0d0e969cf5d7663a0c92288bc?narHash=sha256-mNn9/d0qkRmzTgZo%2BIyu7yQGd0oq0aCSE%2BGR8EZunr4%3D",
-      "flake-description": "Arconia CLI",
-      "locked-flake-attr-path": "packages.x86_64-linux.default",
-      "derivation": "/nix/store/4pi20rq75k64q5ibq127dx001hy5nl9g-arconia-0.2.4.drv",
-      "outputs": {
-        "out": "/nix/store/znbaxkqramlzfx2z38i7bpqvrqzd43vb-arconia-0.2.4"
-      },
-      "output-names": [
-        "out"
-      ],
-      "outputs-to-install": [
-        "out"
-      ],
-      "requested-outputs-to-install": [],
-      "package-system": "x86_64-linux",
-      "system": "x86_64-linux",
-      "name": "arconia-0.2.4",
-      "pname": "arconia",
-      "version": "0.2.4",
-      "broken": false,
-      "unfree": false,
       "priority": 5
     }
   ]
