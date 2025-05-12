@@ -3,11 +3,13 @@
 	"image": "mcr.microsoft.com/devcontainers/java",
 
 	"features": {
-    "ghcr.io/thomasvitale/devcontainers-features/flox:1": {},
+    // "ghcr.io/thomasvitale/devcontainers-features/flox:1": {},
+    "ghcr.io/devcontainers/features/nix:1": {},
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
 	},
 
-  "postCreateCommand": "flox activate",
+  //"postCreateCommand": "flox activate",
+  "postCreateCommand": ".devcontainer/install-flox.sh && flox activate",
 
 	"customizations": {
     "vscode": {
