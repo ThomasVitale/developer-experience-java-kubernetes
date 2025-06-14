@@ -1,21 +1,23 @@
 version = 1
 
 [install]
-jbang.pkg-path = "jbang"
 httpie.pkg-path = "httpie"
+graalvm-ce.pkg-path = "graalvm-ce"
+graalvm-ce.version = "24.0.1"
 arconia-cli-flake.flake = "github:thomasvitale/arconia-cli-flake"
 
 [vars]
 FLOX_DISABLE_METRICS="true"
 
 [hook]
-on-activate = """
-  eval $(jbang jdk env 24)
-
-  echo ""
-  echo "Run Spring Boot with 'arconia dev'"
-  echo ""
-"""
+# on-activate = '''
+#   # -> Set variables, create files and directories
+#   # -> Perform initialization steps, e.g. create a python venv
+#   # -> Useful environment variables:
+#   #      - FLOX_ENV_PROJECT=/home/user/example
+#   #      - FLOX_ENV=/home/user/example/.flox/run
+#   #      - FLOX_ENV_CACHE=/home/user/example/.flox/cache
+# '''
 
 [profile]
 # common = '''
