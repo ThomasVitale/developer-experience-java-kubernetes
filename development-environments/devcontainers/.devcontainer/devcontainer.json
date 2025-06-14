@@ -1,11 +1,11 @@
 {
 	"name": "Java",
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+    //"image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
 
 	"features": {
-        "ghcr.io/devcontainers/features/nix:1": {
-            "extraNixConfig": "extra-trusted-substituters = https://cache.flox.dev, extra-trusted-public-keys = flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
-        },
         "ghcr.io/devcontainers/features/java:1": {
             "version": "24",
             "jdkDistro": "graalce"
@@ -13,19 +13,10 @@
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
 	},
 
-    "postCreateCommand": ".devcontainer/postCreateCommand.sh && flox activate",
+    "postCreateCommand": "java -version",
 
 	"customizations": {
         "vscode": {
-            "settings": {
-                "terminal.integrated.defaultProfile.linux": "bash",
-                "terminal.integrated.profiles.linux": {
-                    "bash": {
-                        "path": "/bin/bash",
-                        "args": ["-c", "flox activate && exec bash"]
-                    }
-                }
-            },
             "extensions": [
                 // Language Support for Java(TM) by Red Hat
                 "redhat.java",
@@ -42,7 +33,10 @@
                 "vmware.vscode-boot-dev-pack",
 
                 // YAML
-                "redhat.vscode-yaml"
+                "redhat.vscode-yaml",
+
+                // Gradle Extension prevents Spring Boot DevTools from working
+                "-vscjava.vscode-gradle"
             ]
         }
     },
