@@ -1,0 +1,12 @@
+[_]
+schema-version = "0.2"
+
+[io.buildpacks]
+builder = "docker.io/paketobuildpacks/builder-noble-java-tiny"
+exclude = [
+    ".flox"
+]
+
+[[io.buildpacks.build.env]]
+name = "BP_JVM_VERSION"
+value = "24"

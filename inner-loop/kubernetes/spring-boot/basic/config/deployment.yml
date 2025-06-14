@@ -28,11 +28,11 @@ spec:
             - containerPort: 8080
           livenessProbe:
             httpGet:
-              url: /actuator/health/liveness
+              path: /actuator/health/liveness
               port: 8080
           readinessProbe:
             httpGet:
-              url: /actuator/health/readiness
+              path: /actuator/health/readiness
               port: 8080
           resources:
             requests:

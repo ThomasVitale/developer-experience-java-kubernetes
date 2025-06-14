@@ -22,10 +22,10 @@ Package the application as a container image.
 ./gradlew bootBuildImage
 ```
 
-Then load the image to the local cluster.
+Then load the image to the local cluster. Due to some issues with the `kind` CLI, you need to run the command twice to ensure the image is loaded correctly.
 
 ```shell
-kind load docker-image demo --name kind-cluster
+kind load docker-image demo --name devex-cluster
 ```
 
 Finally, deploy the application as follows with [`kapp`](https://carvel.dev/kapp/docs/latest/install).
@@ -37,13 +37,51 @@ kapp deploy -a demo -f config -y
 You can now test the application with [`httpie`](https://httpie.io).
 
 ```shell
-http localhost:9090/books
+http :9090/books
 ```
 
 When you're done, you can undeploy the application as follows:
 
 ```shell
 kapp delete -a demo -y
+```
+
+## JKube
+
+Navigate to the `jkube` folder.
+
+```shell
+cd jkube
+```
+
+Package the application as a container image.
+
+```shell
+./gradlew bootBuildImage
+```
+
+Then load the image to the local cluster. Due to some issues with the `kind` CLI, you need to run the command twice to ensure the image is loaded correctly.
+
+```shell
+kind load docker-image demo --name devex-cluster
+```
+
+Next, generate the Kubernetes manifests and deploy the application with JKube.
+
+```shell
+./gradlew k8sResource k8sApply
+```
+
+You can now test the application with [`httpie`](https://httpie.io).
+
+```shell
+http :9090/books
+```
+
+When you're done, you can undeploy the application as follows:
+
+```shell
+./gradlew k8sUndeploy
 ```
 
 ## Knative
@@ -129,7 +167,7 @@ custom_build(
 The inner development loop on Kubernetes requires several steps: compiling the application, building the image, loading it to the cluster, and deploying it. We'll automate it with Skaffold.
 
 > **Warning**
-> Skaffold support for ARM64 architectures is not stable. I recommend choosing Tilt over Skaffold in that case.
+> Skaffold support for ARM64 architectures is not available for all build options. The native Buildpacks support is not available for ARM64 architectures, so we're going to configure Skaffold to rely on Spring Boot's Buildpacks support instead.
 
 Navigate to the `skaffold` folder.
 
@@ -144,44 +182,6 @@ skaffold dev --port-forward
 ```
 
 Now you can work with the application, save your changes, and they will be automatically loaded into the container running in Kubernetes. You can also debug it by attaching a remote debugger from your IDE to the Pod by starting Skaffold with `skaffold debug`.
-
-The Skaffold setup in the `skaffold.yml` file is tuned to work with Visual Studio Code without any additional configuration. 
-
-If you use IntelliJ IDEA, refer to the [official documentation](https://www.jetbrains.com/help/idea/spring-boot.html#application-update-policies) to enable live reload in the IDE. You also need to update the `skaffold.yml` file and change the folders monitored by Skaffold for the live reload functionality. For more information on how it works, refer to the Paketo [official documentation](https://paketo.io/docs/howto/java/#enable-process-reloading).
-
-```yaml
-apiVersion: skaffold/v4beta11
-kind: Config
-metadata:
-  name: demo
-build:
-  artifacts:
-    - image: demo
-      buildpacks:
-        builder: docker.io/paketobuildpacks/builder-jammy-buildpackless-tiny
-        buildpacks:
-          - gcr.io/paketo-buildpacks/java
-        env:
-          - BP_JVM_VERSION=22
-          - BP_LIVE_RELOAD_ENABLED=true
-        dependencies:
-          paths:
-            - build.gradle
-            - src/main/resources
-            - build/classes/java/main
-            - build/resources/main
-      sync:
-        manual:
-          - src: "src/main/resources/**/*"
-            dest: /workspace/BOOT-INF/classes
-            strip: src/main/resources/
-          - src: "build/classes/java/main/**/*"
-            dest: /workspace/BOOT-INF/classes
-            strip: build/classes/java/main/
-          - src: "build/resources/main/**/*"
-            dest: /workspace/BOOT-INF/classes
-            strip: build/resources/main/
-```
 
 ## Clean-up
 

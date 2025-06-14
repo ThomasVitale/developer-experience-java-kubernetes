@@ -12,18 +12,18 @@ build:
             - build.gradle
             - src/main/resources
             - build/classes/java/main
-            #- bin/main
+            - build/resources/main
       sync:
         manual:
           - src: "src/main/resources/**/*"
             dest: /workspace/BOOT-INF/classes
             strip: src/main/resources/
-          # - src: "bin/main/**/*"
-          #   dest: /workspace/BOOT-INF/classes
-          #   strip: bin/main/
           - src: "build/classes/java/main/**/*"
             dest: /workspace/BOOT-INF/classes
             strip: build/classes/java/main/
+          - src: "build/resources/main/**/*"
+            dest: /workspace/BOOT-INF/classes
+            strip: build/resources/main/
 
 manifests:
   rawYaml:

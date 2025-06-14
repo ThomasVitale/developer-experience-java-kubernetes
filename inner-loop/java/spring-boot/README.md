@@ -67,9 +67,7 @@ cd container-image/buildpacks
 You can use the [`pack`](https://buildpacks.io/docs/tools/pack/) CLI from the Cloud Native Buildpacks project to package the application as a container image.
 
 ```shell
-pack build demo \
-  --builder docker.io/paketobuildpacks/builder-noble-java-tiny \
-  --env BP_JVM_VERSION=24
+pack build demo
 ```
 
 For Spring Boot projects, Buildpacks integration is provided directly by the Spring Boot plugins for [Maven](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image) and [Gradle](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#build-image), so you don't need to install any additional tool.
@@ -78,6 +76,8 @@ For Spring Boot projects, Buildpacks integration is provided directly by the Spr
 ./gradlew bootBuildImage
 ```
 
+## Compose
+
 Either way, you can run the application as follows.
 
 ```shell
@@ -85,3 +85,9 @@ podman compose up -d
 ```
 
 You can also debug the application from your IDE. Check out the configuration in the `compose.yml` file, where the debug mode is enabled via convenient Buildpacks environment variables. Then, configure your IDE with a remote debugger on port `9090` and try out debugging the application while running as a container.
+
+When you're done, you can stop the application with the following command.
+
+```shell
+podman compose down
+```

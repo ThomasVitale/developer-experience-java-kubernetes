@@ -1,0 +1,60 @@
+{
+	"name": "Java",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+
+    "runArgs": [
+        "--network=host"
+    ],
+
+	"features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "24",
+            "jdkDistro": "graalce"
+        },
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+            "installDockerBuildx": false,
+            "installDockerComposeSwitch": false
+        }
+	},
+
+	"customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                // Extension Pack for Java
+                "vscjava.vscode-java-pack",
+                // Spring Boot Extension Pack
+                "vmware.vscode-boot-dev-pack",
+
+                // YAML
+                "redhat.vscode-yaml",
+
+                // Gradle Extension prevents Spring Boot DevTools from working
+                "-vscjava.vscode-gradle"
+            ]
+        }
+    },
+
+    "mounts": [
+        // Gradle cache
+        "source=${localEnv:HOME}/.gradle,target=/home/vscode/.gradle,type=bind",
+        // Maven cache
+        "source=${localEnv:HOME}/.m2,target=/home/vscode/.m2,type=bind"
+    ],
+
+    "forwardPorts": [
+		8080
+	],
+  
+    "otherPortsAttributes": {
+        "onAutoForward": "ignore"
+    },
+
+    "postCreateCommand": "java -version",
+    
+    "waitFor": "postCreateCommand"
+}
