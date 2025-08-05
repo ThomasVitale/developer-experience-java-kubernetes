@@ -6,19 +6,22 @@
       "arconia-cli-flake": {
         "flake": "github:thomasvitale/arconia-cli-flake"
       },
-      "graalvm-ce": {
-        "pkg-path": "graalvm-ce",
-        "version": "24.0.1"
-      },
       "httpie": {
         "pkg-path": "httpie"
+      },
+      "temurin-bin-24": {
+        "pkg-path": "temurin-bin-24"
+      },
+      "vscode-java-flake": {
+        "flake": "github:thomasvitale/vscode-java-flake"
       }
     },
     "vars": {
       "FLOX_DISABLE_METRICS": "true"
     },
-    "hook": {},
-    "profile": {},
+    "profile": {
+      "common": "  export JAVA_HOME=$FLOX_ENV\n"
+    },
     "options": {
       "systems": [
         "aarch64-darwin",
@@ -30,236 +33,236 @@
   },
   "packages": [
     {
-      "attr_path": "graalvm-ce",
+      "attr_path": "httpie",
       "broken": false,
-      "derivation": "/nix/store/93vcfdls2mw351p7hi7lnl02035lky3v-graalvm-ce-24.0.1.drv",
-      "description": "High-Performance Polyglot VM",
-      "install_id": "graalvm-ce",
-      "license": "[ UPL-1.0, GPL-2.0-with-classpath-exception, BSD-3-Clause ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "name": "graalvm-ce-24.0.1",
-      "pname": "graalvm-ce",
-      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "rev_count": 811950,
-      "rev_date": "2025-06-07T08:35:48Z",
-      "scrape_date": "2025-06-09T04:23:51.512889Z",
+      "derivation": "/nix/store/xzxqlivns39j4rkm1pw6868cj1vwdpgg-python3.13-httpie-3.2.4.drv",
+      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
+      "install_id": "httpie",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "name": "httpie-3.2.4",
+      "pname": "httpie",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:29:21.682819Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "24.0.1",
+      "version": "3.2.4",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/jiv5r4l347h7s5gkplszkkji3si9cys3-graalvm-ce-24.0.1"
+        "dist": "/nix/store/35fl1gb4kb5952vnz61rg73dkq380442-python3.13-httpie-3.2.4-dist",
+        "out": "/nix/store/xr231p4q6sib62ya06dmal5mqkx3mw71-python3.13-httpie-3.2.4"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
       "priority": 5
     },
     {
-      "attr_path": "graalvm-ce",
+      "attr_path": "httpie",
       "broken": false,
-      "derivation": "/nix/store/4a2ad10wxqkmzlky2spprl00qi1lwm14-graalvm-ce-24.0.1.drv",
-      "description": "High-Performance Polyglot VM",
-      "install_id": "graalvm-ce",
-      "license": "[ UPL-1.0, GPL-2.0-with-classpath-exception, BSD-3-Clause ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "name": "graalvm-ce-24.0.1",
-      "pname": "graalvm-ce",
-      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "rev_count": 811950,
-      "rev_date": "2025-06-07T08:35:48Z",
-      "scrape_date": "2025-06-09T04:41:59.442360Z",
+      "derivation": "/nix/store/nzzj68682j49pyrqlilkjbddab8hi7l2-python3.13-httpie-3.2.4.drv",
+      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
+      "install_id": "httpie",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "name": "httpie-3.2.4",
+      "pname": "httpie",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:49:16.971887Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "24.0.1",
+      "version": "3.2.4",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/md9b8faqbhx1rh2jgb0i1kkga2c3wxnz-graalvm-ce-24.0.1"
+        "dist": "/nix/store/f49v94sdzwwm6ibhggkrpxvi3yg0ari9-python3.13-httpie-3.2.4-dist",
+        "out": "/nix/store/cgw4gimr0im69ffsdyqryssq5zr86npa-python3.13-httpie-3.2.4"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
       "priority": 5
     },
     {
-      "attr_path": "graalvm-ce",
+      "attr_path": "httpie",
       "broken": false,
-      "derivation": "/nix/store/yml60wls1mrailw7xizcg9q8di0k6v7g-graalvm-ce-24.0.1.drv",
-      "description": "High-Performance Polyglot VM",
-      "install_id": "graalvm-ce",
-      "license": "[ UPL-1.0, GPL-2.0-with-classpath-exception, BSD-3-Clause ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "name": "graalvm-ce-24.0.1",
-      "pname": "graalvm-ce",
-      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "rev_count": 811950,
-      "rev_date": "2025-06-07T08:35:48Z",
-      "scrape_date": "2025-06-09T04:58:21.767644Z",
+      "derivation": "/nix/store/p8k3qvq70hwivf0r9kgh35wgbib2mpcl-python3.13-httpie-3.2.4.drv",
+      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
+      "install_id": "httpie",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "name": "httpie-3.2.4",
+      "pname": "httpie",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:08:49.874480Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "24.0.1",
+      "version": "3.2.4",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/ygsbqnfxa82jq7ckdi0xahm4pzgd2fx6-graalvm-ce-24.0.1"
+        "dist": "/nix/store/lgi3zh376dbr2iawhhd8hw958cdsmpbw-python3.13-httpie-3.2.4-dist",
+        "out": "/nix/store/ymzvbkq13cf45sdzfsvdnx1rm0d9d8hx-python3.13-httpie-3.2.4"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
       "priority": 5
     },
     {
-      "attr_path": "graalvm-ce",
+      "attr_path": "httpie",
       "broken": false,
-      "derivation": "/nix/store/lqhsqd6d0aaz55xr3lrphc1a5ildbqwi-graalvm-ce-24.0.1.drv",
-      "description": "High-Performance Polyglot VM",
-      "install_id": "graalvm-ce",
-      "license": "[ UPL-1.0, GPL-2.0-with-classpath-exception, BSD-3-Clause ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "name": "graalvm-ce-24.0.1",
-      "pname": "graalvm-ce",
-      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "rev_count": 811950,
-      "rev_date": "2025-06-07T08:35:48Z",
-      "scrape_date": "2025-06-09T05:17:42.881547Z",
+      "derivation": "/nix/store/3izil76fys06m8sxp14s5gia4raa72gh-python3.13-httpie-3.2.4.drv",
+      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
+      "install_id": "httpie",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "name": "httpie-3.2.4",
+      "pname": "httpie",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:33:00.053982Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "24.0.1",
+      "version": "3.2.4",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/8ca2h2dk00iwn725dr46n7zd1j18jvn8-graalvm-ce-24.0.1"
+        "dist": "/nix/store/0rz883gyx30ggxkh51dsqw0px0dxmj30-python3.13-httpie-3.2.4-dist",
+        "out": "/nix/store/5cc08zz45zfrl0ka58abjcp8hwhib7zp-python3.13-httpie-3.2.4"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
       "priority": 5
     },
     {
-      "attr_path": "httpie",
+      "attr_path": "temurin-bin-24",
       "broken": false,
-      "derivation": "/nix/store/bdxg5rifnxjjnfcpfsh8pi12g2giry00-python3.12-httpie-3.2.4.drv",
-      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
-      "install_id": "httpie",
-      "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "name": "httpie-3.2.4",
-      "pname": "httpie",
-      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "rev_count": 811950,
-      "rev_date": "2025-06-07T08:35:48Z",
-      "scrape_date": "2025-06-09T04:23:51.678748Z",
+      "derivation": "/nix/store/wvq0i7lf1hk3lzq6lyymanpdzz7127s8-temurin-bin-24.0.1.drv",
+      "description": "Eclipse Temurin, prebuilt OpenJDK binary",
+      "install_id": "temurin-bin-24",
+      "license": "GPL-2.0-with-classpath-exception",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "name": "temurin-bin-24.0.1",
+      "pname": "temurin-bin-24",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:30:04.551814Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "3.2.4",
+      "version": "24.0.1",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/xy7gki5ak3v8d2yy7p6vkh4vw000c8a9-python3.12-httpie-3.2.4-dist",
-        "out": "/nix/store/sh2p1km67z504fn1gfdwf01jahqikwfr-python3.12-httpie-3.2.4"
+        "out": "/nix/store/xzzkw6d5002585bgpkjhqh6x9y01p1yw-temurin-bin-24.0.1"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
       "priority": 5
     },
     {
-      "attr_path": "httpie",
+      "attr_path": "temurin-bin-24",
       "broken": false,
-      "derivation": "/nix/store/1zy4iqjkk7zsgbgrzb7qxiqfv95f1l6f-python3.12-httpie-3.2.4.drv",
-      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
-      "install_id": "httpie",
-      "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "name": "httpie-3.2.4",
-      "pname": "httpie",
-      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "rev_count": 811950,
-      "rev_date": "2025-06-07T08:35:48Z",
-      "scrape_date": "2025-06-09T04:42:00.136871Z",
+      "derivation": "/nix/store/36vs9yvy7jkcdbn862srp8bvr2dzi1ii-temurin-bin-24.0.1.drv",
+      "description": "Eclipse Temurin, prebuilt OpenJDK binary",
+      "install_id": "temurin-bin-24",
+      "license": "GPL-2.0-with-classpath-exception",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "name": "temurin-bin-24.0.1",
+      "pname": "temurin-bin-24",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:50:28.111427Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "3.2.4",
+      "version": "24.0.1",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/zyi6pl0iwvw823j8m6wr6fs6yc576pag-python3.12-httpie-3.2.4-dist",
-        "out": "/nix/store/93xhm7h1lchy5klvqhzbingayaqh4l8k-python3.12-httpie-3.2.4"
+        "out": "/nix/store/3ylfwn0rapi0mb3ypv0vysj7qw34346m-temurin-bin-24.0.1"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
       "priority": 5
     },
     {
-      "attr_path": "httpie",
+      "attr_path": "temurin-bin-24",
       "broken": false,
-      "derivation": "/nix/store/5dgvdy43i6j9ln82v6ncrmqrahlza1j9-python3.12-httpie-3.2.4.drv",
-      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
-      "install_id": "httpie",
-      "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "name": "httpie-3.2.4",
-      "pname": "httpie",
-      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "rev_count": 811950,
-      "rev_date": "2025-06-07T08:35:48Z",
-      "scrape_date": "2025-06-09T04:58:21.938164Z",
+      "derivation": "/nix/store/i91y1xxqs2dcjd5w7y03hrnxbbrb9qp4-temurin-bin-24.0.1.drv",
+      "description": "Eclipse Temurin, prebuilt OpenJDK binary",
+      "install_id": "temurin-bin-24",
+      "license": "GPL-2.0-with-classpath-exception",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "name": "temurin-bin-24.0.1",
+      "pname": "temurin-bin-24",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:09:32.701392Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "3.2.4",
+      "version": "24.0.1",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/zfklbgb73zpagkrx4229bsyijclkacxn-python3.12-httpie-3.2.4-dist",
-        "out": "/nix/store/miii02j3q046j8y206imqhyqr62j3kd9-python3.12-httpie-3.2.4"
+        "out": "/nix/store/gpd2196d3la3qc66sr9ii9101xv3iywh-temurin-bin-24.0.1"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
       "priority": 5
     },
     {
-      "attr_path": "httpie",
+      "attr_path": "temurin-bin-24",
       "broken": false,
-      "derivation": "/nix/store/9wwghymrb5c0illk9as0abr9dj075qrz-python3.12-httpie-3.2.4.drv",
-      "description": "Command line HTTP client whose goal is to make CLI human-friendly",
-      "install_id": "httpie",
-      "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "name": "httpie-3.2.4",
-      "pname": "httpie",
-      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
-      "rev_count": 811950,
-      "rev_date": "2025-06-07T08:35:48Z",
-      "scrape_date": "2025-06-09T05:17:43.635624Z",
+      "derivation": "/nix/store/ycjqgiq6fwhh32cgc52azxinfsic64hn-temurin-bin-24.0.1.drv",
+      "description": "Eclipse Temurin, prebuilt OpenJDK binary",
+      "install_id": "temurin-bin-24",
+      "license": "GPL-2.0-with-classpath-exception",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "name": "temurin-bin-24.0.1",
+      "pname": "temurin-bin-24",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:34:14.395634Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "3.2.4",
+      "version": "24.0.1",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/c183p34628v1c5adl8zf0pqgabbd5wh6-python3.12-httpie-3.2.4-dist",
-        "out": "/nix/store/klvk4jm9vpjv4jmwqsxk6d4dwl77b3gp-python3.12-httpie-3.2.4"
+        "out": "/nix/store/12v8cb35fcmg6av5kwkxpp59wcpbsrsy-temurin-bin-24.0.1"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -363,6 +366,102 @@
       "version": "0.2.4",
       "broken": false,
       "unfree": false,
+      "priority": 5
+    },
+    {
+      "install_id": "vscode-java-flake",
+      "locked-url": "github:thomasvitale/vscode-java-flake/db87ade0d5bcf20640f5c76dc1a3f102581d9308?narHash=sha256-FaYNcAj%2BRQNdGPuq3ifFFDKe7yL7KYicUXXxbJvCqdA%3D",
+      "flake-description": "VSCode with Java extensions",
+      "locked-flake-attr-path": "packages.aarch64-darwin.default",
+      "derivation": "/nix/store/22lsk9lh4j727rinbd7i0lk8a7mlbhrb-vscode-with-extensions-1.102.2.drv",
+      "outputs": {
+        "out": "/nix/store/sqj86kc6ml87xgy6yg57ng7a151mjy40-vscode-with-extensions-1.102.2"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "aarch64-darwin",
+      "system": "aarch64-darwin",
+      "name": "vscode-with-extensions-1.102.2",
+      "description": "Open source source code editor developed by Microsoft for Windows,\nLinux and macOS\n",
+      "broken": false,
+      "unfree": true,
+      "priority": 5
+    },
+    {
+      "install_id": "vscode-java-flake",
+      "locked-url": "github:thomasvitale/vscode-java-flake/db87ade0d5bcf20640f5c76dc1a3f102581d9308?narHash=sha256-FaYNcAj%2BRQNdGPuq3ifFFDKe7yL7KYicUXXxbJvCqdA%3D",
+      "flake-description": "VSCode with Java extensions",
+      "locked-flake-attr-path": "packages.aarch64-linux.default",
+      "derivation": "/nix/store/86kh66fc2vz89hpn0ybfca599k7grbqs-vscode-with-extensions-1.102.2.drv",
+      "outputs": {
+        "out": "/nix/store/k2qwciz24000nsyrdxv063qm0g4xfvdb-vscode-with-extensions-1.102.2"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "aarch64-linux",
+      "system": "aarch64-linux",
+      "name": "vscode-with-extensions-1.102.2",
+      "description": "Open source source code editor developed by Microsoft for Windows,\nLinux and macOS\n",
+      "broken": false,
+      "unfree": true,
+      "priority": 5
+    },
+    {
+      "install_id": "vscode-java-flake",
+      "locked-url": "github:thomasvitale/vscode-java-flake/db87ade0d5bcf20640f5c76dc1a3f102581d9308?narHash=sha256-FaYNcAj%2BRQNdGPuq3ifFFDKe7yL7KYicUXXxbJvCqdA%3D",
+      "flake-description": "VSCode with Java extensions",
+      "locked-flake-attr-path": "packages.x86_64-darwin.default",
+      "derivation": "/nix/store/78f9l3iyr5pl35zxc8x20j4ba4zyvjgl-vscode-with-extensions-1.102.2.drv",
+      "outputs": {
+        "out": "/nix/store/6wz911v9f3n7bn7si5l134jp8v4m6kak-vscode-with-extensions-1.102.2"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "x86_64-darwin",
+      "system": "x86_64-darwin",
+      "name": "vscode-with-extensions-1.102.2",
+      "description": "Open source source code editor developed by Microsoft for Windows,\nLinux and macOS\n",
+      "broken": false,
+      "unfree": true,
+      "priority": 5
+    },
+    {
+      "install_id": "vscode-java-flake",
+      "locked-url": "github:thomasvitale/vscode-java-flake/db87ade0d5bcf20640f5c76dc1a3f102581d9308?narHash=sha256-FaYNcAj%2BRQNdGPuq3ifFFDKe7yL7KYicUXXxbJvCqdA%3D",
+      "flake-description": "VSCode with Java extensions",
+      "locked-flake-attr-path": "packages.x86_64-linux.default",
+      "derivation": "/nix/store/fh7hjd8578h8l232sw7szfyz94m43wbz-vscode-with-extensions-1.102.2.drv",
+      "outputs": {
+        "out": "/nix/store/acc1ml0c7cqay55wzs3cfgz6xlm5c6if-vscode-with-extensions-1.102.2"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "x86_64-linux",
+      "system": "x86_64-linux",
+      "name": "vscode-with-extensions-1.102.2",
+      "description": "Open source source code editor developed by Microsoft for Windows,\nLinux and macOS\n",
+      "broken": false,
+      "unfree": true,
       "priority": 5
     }
   ]
