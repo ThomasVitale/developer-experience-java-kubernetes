@@ -1,0 +1,50 @@
+{
+  "name": "Java",
+
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": ".."
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        // Extension Pack for Java
+        "vscjava.vscode-java-pack",
+        // Spring Boot Extension Pack
+        "vmware.vscode-boot-dev-pack",
+
+        // YAML
+        "redhat.vscode-yaml",
+
+        // Excluding the Gradle extension as it breaks the Spring Boot DevTools
+        "-vscjava.vscode-gradle",
+        // Excluding the Container extensions. Not needed + heavyweight.
+        "-ms-azuretools.vscode-containers",
+        "-ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+  "forwardPorts": [
+		8080
+	],
+  
+  "otherPortsAttributes": {
+    "onAutoForward": "ignore"
+  },
+
+  "mounts": [
+    // Gradle cache
+    "source=${localEnv:HOME}/.gradle,target=/home/devbox/.gradle,type=bind,consistency=cached",
+    // Maven cache
+    "source=${localEnv:HOME}/.m2,target=/home/devbox/.m2,type=bind,consistency=cached",
+  ],
+
+  "postCreateCommand": "java -version",
+
+  "remoteUser": "devbox",
+
+  "waitFor": "postCreateCommand"
+}

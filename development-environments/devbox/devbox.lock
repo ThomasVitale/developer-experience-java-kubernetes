@@ -1,0 +1,125 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2025-09-01T03:15:32Z",
+      "resolved": "github:NixOS/nixpkgs/58dcbf1ec551914c3756c267b8b9c8c86baa1b2f?lastModified=1756696532&narHash=sha256-6FWagzm0b7I%2FIGigOv9pr6LL7NQ86mextfE8g8Q6HBg%3D"
+    },
+    "github:thomasvitale/arconia-cli-flake": {
+      "last_modified": "2025-08-12T19:32:43Z",
+      "resolved": "github:thomasvitale/arconia-cli-flake/a828dee66508fbdcab54824710a45bed126f8388?lastModified=1755027163&narHash=sha256-e3xemUu3swcekn4ZdnjccKKUl2jxoAZ5d9HqzEtr0fI%3D"
+    },
+    "httpie@latest": {
+      "last_modified": "2025-07-28T17:09:23Z",
+      "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#httpie",
+      "source": "devbox-search",
+      "version": "3.2.4",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/xr231p4q6sib62ya06dmal5mqkx3mw71-python3.13-httpie-3.2.4",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/35fl1gb4kb5952vnz61rg73dkq380442-python3.13-httpie-3.2.4-dist"
+            }
+          ],
+          "store_path": "/nix/store/xr231p4q6sib62ya06dmal5mqkx3mw71-python3.13-httpie-3.2.4"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/cgw4gimr0im69ffsdyqryssq5zr86npa-python3.13-httpie-3.2.4",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/f49v94sdzwwm6ibhggkrpxvi3yg0ari9-python3.13-httpie-3.2.4-dist"
+            }
+          ],
+          "store_path": "/nix/store/cgw4gimr0im69ffsdyqryssq5zr86npa-python3.13-httpie-3.2.4"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ymzvbkq13cf45sdzfsvdnx1rm0d9d8hx-python3.13-httpie-3.2.4",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/lgi3zh376dbr2iawhhd8hw958cdsmpbw-python3.13-httpie-3.2.4-dist"
+            }
+          ],
+          "store_path": "/nix/store/ymzvbkq13cf45sdzfsvdnx1rm0d9d8hx-python3.13-httpie-3.2.4"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/5cc08zz45zfrl0ka58abjcp8hwhib7zp-python3.13-httpie-3.2.4",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/0rz883gyx30ggxkh51dsqw0px0dxmj30-python3.13-httpie-3.2.4-dist"
+            }
+          ],
+          "store_path": "/nix/store/5cc08zz45zfrl0ka58abjcp8hwhib7zp-python3.13-httpie-3.2.4"
+        }
+      }
+    },
+    "zulu24@latest": {
+      "last_modified": "2025-07-28T17:09:23Z",
+      "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#zulu24",
+      "source": "devbox-search",
+      "version": "24.0.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/vfvi6zkyv2m3hlh0chpyzkddk18sgha7-zulu-ca-jdk-24.0.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/vfvi6zkyv2m3hlh0chpyzkddk18sgha7-zulu-ca-jdk-24.0.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9lfz8z8ywliv80fv12bq26ja3i2x92k3-zulu-ca-jdk-24.0.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/9lfz8z8ywliv80fv12bq26ja3i2x92k3-zulu-ca-jdk-24.0.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/k9vixhcx24fdmr2z8hwzw0al9b08fplr-zulu-ca-jdk-24.0.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/k9vixhcx24fdmr2z8hwzw0al9b08fplr-zulu-ca-jdk-24.0.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/cnvc2gsrq420apv1w3y8s3mcxarg0xly-zulu-ca-jdk-24.0.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/cnvc2gsrq420apv1w3y8s3mcxarg0xly-zulu-ca-jdk-24.0.1"
+        }
+      }
+    }
+  }
+}
