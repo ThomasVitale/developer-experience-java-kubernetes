@@ -1,6 +1,54 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "docker-client@latest": {
+      "last_modified": "2025-08-05T11:35:34Z",
+      "resolved": "github:NixOS/nixpkgs/a683adc19ff5228af548c6539dbc3440509bfed3#docker-client",
+      "source": "devbox-search",
+      "version": "28.3.3",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/6x679ch4cqa5aywjsrnplsasv5rp0mak-docker-28.3.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/6x679ch4cqa5aywjsrnplsasv5rp0mak-docker-28.3.3"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/20jkkv1329knp203glzbv4mjlimhhkxa-docker-28.3.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/20jkkv1329knp203glzbv4mjlimhhkxa-docker-28.3.3"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/g3h7m6qsx5rkb908qcqi4a6kflvcriz5-docker-28.3.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/g3h7m6qsx5rkb908qcqi4a6kflvcriz5-docker-28.3.3"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/kmz6pix1401ddzjcfj92dggd87v0nl8a-docker-28.3.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/kmz6pix1401ddzjcfj92dggd87v0nl8a-docker-28.3.3"
+        }
+      }
+    },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
       "last_modified": "2025-09-01T03:15:32Z",
       "resolved": "github:NixOS/nixpkgs/58dcbf1ec551914c3756c267b8b9c8c86baa1b2f?lastModified=1756696532&narHash=sha256-6FWagzm0b7I%2FIGigOv9pr6LL7NQ86mextfE8g8Q6HBg%3D"
