@@ -3,8 +3,7 @@
   "packages": [
     "httpie@latest",
     "zulu24@latest",
-    "github:thomasvitale/arconia-cli-flake",
-    "docker-client@latest"
+    "github:thomasvitale/arconia-cli-flake"
   ],
   "shell": {
     "init_hook": [
